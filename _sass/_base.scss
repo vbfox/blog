@@ -8,18 +8,23 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
-
-
 /**
  * Basic styling
  */
 body {
-    font-family: $base-font-family;
-    font-size: $base-font-size;
+	background: $background-color;
+
+	background: -moz-linear-gradient(top, #2e3337 0%, #191c1e 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2e3337), color-stop(100%,#191c1e));
+	background: -webkit-linear-gradient(top, #2e3337 0%,#191c1e 100%);
+	background: -o-linear-gradient(top, #2e3337 0%,#191c1e 100%);
+	background: -ms-linear-gradient(top, #2e3337 0%,#191c1e 100%);
+	background: linear-gradient(top, #2e3337 0%,#191c1e 100%);
+	background-attachment: fixed;
+
+	font: $base-font-size $base-font-family;
     line-height: $base-line-height;
-    font-weight: 300;
     color: $text-color;
-    background-color: $background-color;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -79,7 +84,32 @@ li {
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
+h1 {
+	font-size: 55px;
+	position: fixed;
+	bottom: 0;
+	left:0;
+	z-index: -1;
+
+	-webkit-transform: translateX(65px) translateY(-5px) rotate(-90deg);
+	-moz-transform: translateX(65px) translateY(-5px) rotate(-90deg);
+	-o-transform: translateX(65px) translateY(-5px) rotate(-90deg);
+	-ms-transform: translateX(65px) translateY(-5px) rotate(-90deg);
+	transform: translateX(65px) translateY(-5px) rotate(-90deg);
+
+	-webkit-transform-origin: 0% 100%;
+	-moz-transform-origin: 0% 100%;
+	-o-transform-origin: 0% 100%;
+	-ms-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+}
+
+h1, h1 a:link, h1 a:visited, h1 a:hover {
+	color: #8C96A2;
+	text-decoration: none;
+}
+
+h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
 
@@ -89,16 +119,16 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: $link-color;
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: $link-color;
     }
 
     &:hover {
-        color: $text-color;
-        text-decoration: underline;
+	       color: #B5CEE2;
+	    text-decoration: underline;
     }
 }
 
@@ -125,21 +155,28 @@ blockquote {
 /**
  * Code formatting
  */
-pre,
-code {
-    font-size: 15px;
-    border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+code, pre {
+	border-radius: 5px;
+	border: 1px solid #0B0D0F;
+	font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+	background: #1E2329;
 }
 
 code {
-    padding: 1px 5px;
+    color: white;
+    padding: 0 2px;
 }
 
 pre {
-    padding: 8px 12px;
-    overflow-x: scroll;
+	overflow: auto;
+	width: 100%;
+	height: auto;
+	padding: 5px;
+	margin: 6px 0;
+    font-size: 0.9em;
+    line-height: 1em;
+    font-size: 17px;
+    color: #B9BDB6;
 
     > code {
         border: 0;
@@ -193,8 +230,8 @@ pre {
 
     > svg {
         display: inline-block;
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
         vertical-align: middle;
 
         path {

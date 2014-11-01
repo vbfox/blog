@@ -9,4 +9,4 @@ twitter_username: virtualblackfox
 github_username:  vbfox
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet

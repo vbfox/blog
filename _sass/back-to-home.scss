@@ -1,0 +1,13 @@
+#back-to-home {
+    position: fixed;
+    left: 5px;
+    top: 5px;
+    background-image: url('../img/home.png');
+    height: 48px;
+    width: 48px;
+    overflow: hidden;
+}
+
+#back-to-home span {
+    margin-left: 100px;
+}
