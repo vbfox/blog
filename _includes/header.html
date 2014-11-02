@@ -14,11 +14,14 @@
       </a>
       <div class="trigger">
         <a class="page-link" href="{{ site.baseurl }}/">/blog</a>
+        <a class="page-link" href="https://careers.stackoverflow.com/roncagliajulien">/cv</a>
+
         {% for page in site.pages %}
           {% if page.title %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
           {% endif %}
         {% endfor %}
+
         <a class="page-link" href="mailto:{{ site.email }}">
           <span class="icon  icon--mail">
             <svg viewBox="0 0 40 40">
@@ -27,6 +30,7 @@
             fox@vbfox.net
           </span>
         </a>
+
         {% if site.github_username %}
           <a class="page-link" href="https://github.com/{{ site.github_username }}">
             <span class="icon  icon--github">
