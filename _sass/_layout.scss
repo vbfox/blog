@@ -95,11 +95,11 @@
 
 .post-meta {
     margin: 0 8px 0 0;
-	color: #8C96A2;
-	padding: 5px 0 0 0;
-	position: absolute;
+  	color: #8C96A2;
+  	padding: 5px 0 0 0;
+  	position: absolute;
     right: 0;
-	font-style: italic;
+  	font-style: italic;
 }
 
 .post-link {
@@ -128,6 +128,12 @@
 
 .post-content {
     margin-bottom: $spacing-unit;
+
+    h2, h3, h4 {
+      margin-top: 25px;
+      margin-bottom: 10px;
+      color: #666;
+    }
 
     h2 {
         font-size: 32px;

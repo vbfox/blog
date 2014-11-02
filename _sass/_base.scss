@@ -33,7 +33,7 @@ body {
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
+h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
@@ -88,8 +88,7 @@ h1 {
 	font-size: 55px;
 	position: fixed;
 	bottom: 0;
-	left:0;
-	z-index: -1;
+	left: 9px;
 
 	-webkit-transform: translateX(65px) translateY(-5px) rotate(-90deg);
 	-moz-transform: translateX(65px) translateY(-5px) rotate(-90deg);

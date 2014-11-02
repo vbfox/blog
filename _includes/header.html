@@ -1,8 +1,8 @@
 <header class="site-header">
 
-  <div class="wrapper">
+  <h1><a class="page-link" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
-    <h1>{{ site.title }}</h1>
+  <div class="wrapper">
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -13,7 +13,7 @@
         </svg>
       </a>
       <div class="trigger">
-        <a class="page-link" href="{{ site.baseurl }}/">Posts</a>
+        <a class="page-link" href="{{ site.baseurl }}/">/blog</a>
         {% for page in site.pages %}
           {% if page.title %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
