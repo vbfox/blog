@@ -4,7 +4,7 @@ title:  "Gmail \"mark as unread\" now works correctly !"
 date:   2009-03-18 16:57
 tags:   Gmail Rants
 ---
-As explained in the [Gmail blog](1), the really annoying bug of the
+As explained in the [Gmail blog][1], the really annoying bug of the
 "mark as unread" button is now fixed.
 
 Before if you had a new post in a really old thread with dozens of mails and
