@@ -78,6 +78,18 @@
     padding: $spacing-unit 0;
     font-size: 1.2em;
     line-height: 1.3em;
+
+    @media only screen {
+        margin: 10px 10px 10px 100px;
+
+        @media (max-width:700px) {
+          margin: 5px 5px 5px 40px;
+        }
+
+        @media (max-width:540px) {
+          margin: 5px;
+        }
+    }
 }
 
 .page-heading {

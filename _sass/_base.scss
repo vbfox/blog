@@ -85,27 +85,51 @@ li {
  * Headings
  */
 h1 {
-	font-size: 55px;
-	position: fixed;
-	bottom: 0;
-	left: 9px;
+  	font-size: 55px;
+  	position: fixed;
+  	bottom: 0;
+  	left: 9px;
 
-	-webkit-transform: translateX(65px) translateY(-5px) rotate(-90deg);
-	-moz-transform: translateX(65px) translateY(-5px) rotate(-90deg);
-	-o-transform: translateX(65px) translateY(-5px) rotate(-90deg);
-	-ms-transform: translateX(65px) translateY(-5px) rotate(-90deg);
-	transform: translateX(65px) translateY(-5px) rotate(-90deg);
+    @media only screen {
+        -webkit-transform: translateX(65px) translateY(-5px) rotate(-90deg);
+        -moz-transform: translateX(65px) translateY(-5px) rotate(-90deg);
+        -o-transform: translateX(65px) translateY(-5px) rotate(-90deg);
+        -ms-transform: translateX(65px) translateY(-5px) rotate(-90deg);
+        transform: translateX(65px) translateY(-5px) rotate(-90deg);
 
-	-webkit-transform-origin: 0% 100%;
-	-moz-transform-origin: 0% 100%;
-	-o-transform-origin: 0% 100%;
-	-ms-transform-origin: 0% 100%;
-	transform-origin: 0% 100%;
+        -webkit-transform-origin: 0% 100%;
+        -moz-transform-origin: 0% 100%;
+        -o-transform-origin: 0% 100%;
+        -ms-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+
+        @media (max-width:700px) {
+        		font-size: 25px;
+
+        		-webkit-transform: translateX(35px) translateY(-5px) rotate(-90deg);
+        		-moz-transform: translateX(35px) translateY(-5px) rotate(-90deg);
+        		-o-transform: translateX(35px) translateY(-5px) rotate(-90deg);
+        		-ms-transform: translateX(35px) translateY(-5px) rotate(-90deg);
+        		transform: translateX(35px) translateY(-5px) rotate(-90deg);
+      	}
+
+        @media (max-width:540px) {
+            position: relative;
+            -webkit-transform: none;
+            -moz-transform: none;
+            -o-transform: none;
+            -ms-transform: none;
+            transform: none;
+
+            font-size: 40px;
+            margin: 5px 0 15px 0;
+        }
+    }
 }
 
 h1, h1 a:link, h1 a:visited, h1 a:hover {
-	color: #8C96A2;
-	text-decoration: none;
+  	color: #8C96A2;
+  	text-decoration: none;
 }
 
 h2, h3, h4, h5, h6 {
