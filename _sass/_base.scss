@@ -91,35 +91,18 @@ h1 {
   	left: 9px;
 
     @media only screen {
-        -webkit-transform: translateX(65px) translateY(-5px) rotate(-90deg);
-        -moz-transform: translateX(65px) translateY(-5px) rotate(-90deg);
-        -o-transform: translateX(65px) translateY(-5px) rotate(-90deg);
-        -ms-transform: translateX(65px) translateY(-5px) rotate(-90deg);
-        transform: translateX(65px) translateY(-5px) rotate(-90deg);
-
-        -webkit-transform-origin: 0% 100%;
-        -moz-transform-origin: 0% 100%;
-        -o-transform-origin: 0% 100%;
-        -ms-transform-origin: 0% 100%;
-        transform-origin: 0% 100%;
+        @include transform(65px, -5px, -90deg);
+        @include transform-origin(0% 100%);
 
         @media (max-width:700px) {
         		font-size: 25px;
 
-        		-webkit-transform: translateX(35px) translateY(-5px) rotate(-90deg);
-        		-moz-transform: translateX(35px) translateY(-5px) rotate(-90deg);
-        		-o-transform: translateX(35px) translateY(-5px) rotate(-90deg);
-        		-ms-transform: translateX(35px) translateY(-5px) rotate(-90deg);
-        		transform: translateX(35px) translateY(-5px) rotate(-90deg);
+            @include transform(35px, -5px, -90deg);
       	}
 
         @media (max-width:540px) {
             position: relative;
-            -webkit-transform: none;
-            -moz-transform: none;
-            -o-transform: none;
-            -ms-transform: none;
-            transform: none;
+            @include transform-none;
 
             font-size: 40px;
             margin: 5px 0 15px 0;
