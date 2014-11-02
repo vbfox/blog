@@ -12,17 +12,8 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-	background: $background-color;
-
-	background: -moz-linear-gradient(top, #2e3337 0%, #191c1e 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2e3337), color-stop(100%,#191c1e));
-	background: -webkit-linear-gradient(top, #2e3337 0%,#191c1e 100%);
-	background: -o-linear-gradient(top, #2e3337 0%,#191c1e 100%);
-	background: -ms-linear-gradient(top, #2e3337 0%,#191c1e 100%);
-	background: linear-gradient(top, #2e3337 0%,#191c1e 100%);
-	background-attachment: fixed;
-
-	font: $base-font-size $base-font-family;
+    background: $background-color;
+	  font: $base-font-size $base-font-family;
     line-height: $base-line-height;
     color: $text-color;
     -webkit-text-size-adjust: 100%;
