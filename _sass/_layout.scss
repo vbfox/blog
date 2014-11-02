@@ -109,8 +109,6 @@
     margin: 0 8px 0 0;
   	color: #8C96A2;
   	padding: 5px 0 0 0;
-  	position: absolute;
-    right: 0;
   	font-style: italic;
 }
 
@@ -124,17 +122,35 @@
 /**
  * Posts
  */
+.post-separator {
+    text-align: center;
+    font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+    color: #888;
+}
+
 .post-header {
     margin-bottom: $spacing-unit;
 }
 
 .post-title {
-    font-size: 42px;
+    font-size: 28px;
     letter-spacing: -1px;
     line-height: 1;
 
     @include media-query($on-laptop) {
         font-size: 36px;
+    }
+
+    a {
+        font-size: inherit;
+
+        &, &:hover, &:visited {
+            text-decoration: none;
+        }
+    }
+
+    &, a {
+        color: rgb(255, 211, 97);
     }
 }
 
