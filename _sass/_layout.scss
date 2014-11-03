@@ -158,11 +158,24 @@
 
 .post-content {
     margin-bottom: $spacing-unit;
+    margin-left: $spacing-unit;
+    margin-right: $spacing-unit;
+
+    @media (max-width:700px) {
+        margin-left: $spacing-unit / 2;
+        margin-right: $spacing-unit / 2;
+    }
+
+    @media (max-width:540px) {
+        margin-left: 0;
+        margin-right: 0;
+    }
 
     h2, h3, h4 {
       margin-top: 25px;
       margin-bottom: 10px;
-      color: #666;
+      color: #DFD5A4;
+      border-bottom: 1px solid #493F09;
     }
 
     h2 {

@@ -5,12 +5,12 @@ date:   2014-11-02 11:49
 tags: blog ruby
 ---
 
-This weekend I wanted to blog about [libgit2sharp][1] but I realised that my
+This weekend I wanted to blog about [libgit2sharp][1] but I realized that my
 setup for blogging wasn't really practical. I used [dotclear][2] but by
 insisting on markdown and refusing the graphical editor it was only an hindrance
 for me.
 
-In response I investigated the domain of the simple blogging plaforms running
+In response I investigated the domain of the simple blogging platforms running
 only locally and generating html files.
 The one I ended up using is a ruby tool named [Jekyll][3]; the one that is used
 by GitHub for their GitHub pages.

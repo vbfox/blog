@@ -6,8 +6,7 @@ tags:   Debian Linux ShevaPlug Ubuntu
 ---
 Once a SheevaPlug is formated with sheevaplug-installer the minimum to do is :
 
-Set the MAC address
--------------------
+### Set the MAC address
 
 Connect to the serial console, enter U-Boot and set the MAC address :
 
@@ -17,8 +16,7 @@ saveenv
 reset
 ```
 
-Set timezone and hostname
--------------------------
+### Set timezone and hostname
 
 Login and type :
 

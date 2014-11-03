@@ -14,8 +14,7 @@ LINQ to SQL view of all objects of a connection directly as members of the
 generated script class. But LINQPad is a lot more generic and can serve as a C#
 swiss army knife for a lot of utility scripts.
 
-Searching for NuGet packages
-----------------------------
+### Searching for NuGet packages
 
 The Free and Pro editions of LINQPad don't give you access to the ability to
 reference [NuGet][4] packages directly and the NuGet website doesn't provide any
@@ -66,8 +65,7 @@ void Main()
 This version of the code also introduce `Util.ReadLine` a method that display an
 input line at the bottom of the LINQPad output.
 
-Adding download links
----------------------
+### Adding download links
 
 Now that we have all info from our package we need the download URL, turns out
 that it isn't directly included in the data but we should be able to build it
@@ -107,8 +105,7 @@ in LINQPad output :
 
 ![Links in output](/assets/linqpad-nuget-packages.png)
 
-Pricing
--------
+### Pricing
 
 Regarding the price for free you get the basic UI, the Pro versions is at
 **40$** (Autocompletion) and the Premium (Direct SQL table editing + NuGet) is

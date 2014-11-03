@@ -5,7 +5,7 @@ layout: default
 <div class="home">
   <ul class="post-list">
     {% for post in site.posts %}
-      <li>
+      <li class="post">
         <div class="post-header">
           <h2 class="post-title">
             <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -17,9 +17,7 @@ layout: default
         </article>
       </li>
       {% if forloop.last == false %}
-      <li class="post-separator">
-        &lt;!-- fox --&gt;
-      </li>
+      <li class="post-separator" />
       {% endif %}
     {% endfor %}
   </ul>
