@@ -31,7 +31,17 @@ ul, ol, dl, figure,
     margin-bottom: $spacing-unit / 2;
 }
 
+/*
+ * Emphasis
+ */
 
+em {
+    color: #D7F9DD;
+}
+
+strong {
+    color: #F1B66A;
+}
 
 /**
  * Images
@@ -40,8 +50,6 @@ img {
     max-width: 100%;
     vertical-align: middle;
 }
-
-
 
 /**
  * Figures
@@ -61,6 +69,7 @@ figcaption {
  */
 ul, ol {
     margin-left: $spacing-unit;
+    list-style-type: square;
 }
 
 li {

@@ -24,7 +24,12 @@ $grey-color-dark:  darken($grey-color, 25%);
 $on-palm:          600px;
 $on-laptop:        800px;
 
-
+.post-content > p > img {
+  display: block;
+  margin: 0 auto;
+  max-height: 80%;
+  max-width: 100%;
+}
 
 // Using media queries with like this:
 // @include media-query($palm) {
