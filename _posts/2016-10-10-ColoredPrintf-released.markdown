@@ -11,7 +11,7 @@ of the library is available on [NuGet][nuget] with it's source code on my [Githu
 The syntax to use for color is `$foreground;background[text]` with the color names being the same as in the
 [ConsoleColor][consolecolor] enumeration.
 
-The main entry points of the library are the `coloredprintf` and `coloredprintfn` functions that have the same
+The main entry points of the library are the `colorprintf` and `colorprintfn` functions that have the same
 signature as printf (It uses my [MasterOfFoo][masteroffoo] library for that).
 
 Example
