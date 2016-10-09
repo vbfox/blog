@@ -14,3 +14,4 @@ highlighter: pygments
 exclude:
   - Gemfile*
   - readme.md
+  - '*.cmd'
