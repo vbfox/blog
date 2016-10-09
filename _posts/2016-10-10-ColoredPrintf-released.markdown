@@ -2,7 +2,7 @@
 layout: post
 title: "ColoredPrintf released"
 tags: F#, MasterOfFoo, ColoredPrintf
-date: 2016-10-10 00:00
+date: 2016-10-10 00:19
 ---
 
 ColoredPrintf is a very simple library that provide a `printf`-like function with color support. A first version
@@ -12,7 +12,7 @@ The syntax to use for color is `$foreground;background[text]` with the color nam
 [ConsoleColor][consolecolor] enumeration.
 
 The main entry points of the library are the `colorprintf` and `colorprintfn` functions that have the same
-signature as printf (It uses my [MasterOfFoo][masteroffoo] library for that).
+signature as `printf` and `printfn` (It uses my [MasterOfFoo][masteroffoo] library for that).
 
 Example
 -------
