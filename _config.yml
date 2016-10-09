@@ -10,3 +10,7 @@ github_username:  vbfox
 
 # Build settings
 markdown: redcarpet
+highlighter: pygments
+exclude:
+  - Gemfile*
+  - readme.md
