@@ -1,12 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.4.0)
     colorator (1.1.0)
     ffi (1.9.14-x64-mingw32)
     forwardable-extended (2.6.0)
-    jekyll (3.3.0)
-      addressable (~> 2.4)
+    jekyll (3.2.1)
       colorator (~> 1.0)
       jekyll-sass-converter (~> 1.0)
       jekyll-watch (~> 1.1)
@@ -39,15 +37,17 @@ GEM
     rouge (1.11.1)
     safe_yaml (1.0.4)
     sass (3.4.22)
+    wdm (0.1.1)
     yajl-ruby (1.2.1)
 
 PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  jekyll
+  jekyll (= 3.2.1)
   pygments.rb
   redcarpet
+  wdm (~> 0.1.0)
 
 BUNDLED WITH
    1.13.2
