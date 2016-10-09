@@ -46,7 +46,7 @@ If you don't already have it on your dev machine it's available from the
 *Internet Information Services* and you can either go with the defaults or get
 everything under there.
 
-![Windows features](../assets/iis-windows-features.png)
+![Windows features](/assets/iis-windows-features.png)
 
 Once installed, start IIS Manager and create a website listening on a random port on IP address
 `127.0.0.1` with a *Physical path* corresponding to the `bin/Debug` directory of the hello world
@@ -68,7 +68,7 @@ the application code.
 To install it start the Web Platform Installer (Either from your start menu or from the right
 side actions in IIS Manager) and search for it.
 
-![Web Platform Installer](../assets/iis-httpplatformhandler.png)
+![Web Platform Installer](/assets/iis-httpplatformhandler.png)
 
 To be able to enable it per-site like we'll do in the next step, open IIS Manager and in the
 *Feature View* for the whole server, open *Feature Delegation* and enable *Handlers Mappings* as
