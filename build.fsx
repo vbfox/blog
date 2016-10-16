@@ -35,7 +35,7 @@ let execBundle args =
     let config (psi:ProcessStartInfo) =
         psi.FileName <- getBundlePath()
         psi.Arguments <- args
-    let result = ExecProcess config (TimeSpan.FromMinutes(5.))
+    let result = ExecProcess config (TimeSpan.MaxValue)
     if result <> 0 then failwith "Bundle failed"
 
 Target "Install" <| fun _ ->
