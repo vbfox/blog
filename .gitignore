@@ -2,3 +2,4 @@ _site
 .sass-cache
 packages
 .fake
+.paket/paket.exe

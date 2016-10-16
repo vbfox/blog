@@ -1,6 +1,6 @@
 @echo off
 
-paket.exe restore
+call "paket.cmd" restore
 if errorlevel 1 (
   exit /b %errorlevel%
 )
