@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Using CommandBindings in MVVM"
-date:   2011-12-08 00:09
-tags: C# MVVM WPF
+title: "Using CommandBindings in MVVM"
+date: 2011-12-08 00:09
+tags: C#, MVVM, WPF
 ---
 One sad thing in WPF currently is that the `CommandBindings` used to attach an action to a `RoutedCommand` don't support
 the MVVM pattern : Their properties can't be easily bound to the DataContext, and they don't support attaching a
