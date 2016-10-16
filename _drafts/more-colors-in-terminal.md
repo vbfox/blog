@@ -58,7 +58,8 @@ Using `kprintf` we can create a printf-like function and start implementing a fe
 let csi = esc + "["
 let printsequencef f = Printf.kprintf (fun s -> System.Console.Write(esc + s)) f
 let printcsif f = Printf.kprintf (fun s -> System.Console.Write(csi + s)) f
-let selectGraphicRendition (gr: int list) = printcsif "%sm" (System.String.Join(";", gr |> Seq.map string))
+let selectGraphicRendition (gr: int list) =
+    printcsif "%sm" (System.String.Join(";", gr |> Seq.map string))
 let resetColor() = selectGraphicRendition [0]
 let setForeground i = selectGraphicRendition([30 + i])
 let setBackground i = selectGraphicRendition([40 + i])
@@ -127,13 +128,15 @@ And we can apply it to a 40x40px version of the FSharp logo :
 
 ![Logo](/assets/color-terminal-logo.png)
 
-The code for all of that can be found in [a Gist][gist]
+The code for all of that can be found in [a Gist][gist].
 
 Appendix A: ConEmu color support<a name="conemu"></a>
 ---------------------------------------------------
 
 ConEmu support more than the standard 16 colors but if you try it, it won't work directly, it seem that maybe for
 compatibility reasons the support isn't always on.
+
+![Before](/assets/color-terminal-conemu-16.png)
 
 To trigger it an application must first scroll the terminal far away at least once with the `T` command :
 
@@ -146,10 +149,7 @@ setCursorPos 9999 1
 
 After that ConEnu will display what we expect :
 
-![Before](/assets/color-terminal-conemu-16.png)
-
 ![After](/assets/color-terminal-conemu-256.png)
-
 
 Appendix B: Enabling escape codes in `cmd.exe`
 ----------------------------------------------
