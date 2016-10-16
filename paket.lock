@@ -1,0 +1,4 @@
+NUGET
+  remote: http://api.nuget.org/v3/index.json
+    FAKE (4.41.6)
+    WinSCP (5.9.2)
