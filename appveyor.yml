@@ -14,3 +14,6 @@ build_script:
 artifacts:
 - path: _site
   name: Site
+cache:
+  - C:\Ruby22-x64\lib\ruby\gems -> Gemfile.lock
+  - packages -> paket.lock
