@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "GPG Key"
-top-link: "/gpg"
+top-link: "gpg"
 permalink: /gpg/
 ---
 
