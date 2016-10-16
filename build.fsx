@@ -86,7 +86,7 @@ Target "CI" DoNothing
 "Install" ?=> "Serve"
 "Build" ==> "Upload"
 
-"CI" ==> "Install"
-"CI" ==> "Upload"
+"Install" ==> "CI"
+"Upload" ==> "CI"
 
 RunTargetOrDefault "Build"
