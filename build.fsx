@@ -45,7 +45,7 @@ Target "Build" <| fun _ ->
     execBundle "exec jekyll build"
 
 Target "Serve" <| fun _ ->
-    execBundle "exec jekyll serve --future --watch"
+    execBundle "exec jekyll serve --future --drafts --watch"
 
 let private winScpPath =
     lazy (
