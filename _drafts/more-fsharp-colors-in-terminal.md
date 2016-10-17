@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "More colors in the terminal"
+title: "More F# colors in the terminal"
 tags: F#, Terminal, XTerm
 ---
 
@@ -12,24 +12,27 @@ While on windows console colors are changed using a call to the
 physical terminal did it with special [escape sequences][wikipedia] that are sent to the terminal but change it's
 behavior instead of being displayed.
 
-It is especially interesting as such terminals are becomming more present, even in the windows world. The
-excelent [ConEmu][conemu] support lot of the codes, the venerable `cmd.exe` can be told to interpret them (as we'll
-see later) and it'll even soon [gain True Color support too][windows10truecolor].
+It is especially interesting as such terminals are becomming more present, even in the windows world.
+[ConEmu][conemu] support a lot even if it's buggy, the venerable windows terminal can be told to interpret them
+(as we'll see later) and it'll even soon [gain True Color support too][windows10truecolor].
 
 Compatibility
 -------------
 
-* On windows running [ConEmu][conemu] is the best you can do, there is a little trick to enable more than 16 colors
-  but it's easy and need to be done only once per session. I'll explain how to do it from code in in
-  [a dedicated paragraph](#conemu) but you can simply display one of the ConEmu sample file with
+If you're on windows, expect bugs everywhere but if you have a mac or a linux OS you're good. In more details :
+
+* On windows ConEmu is still the best you can do, it's buggy but usable. There is a little trick to
+  enable more than 16 colors but it's easy and need to be done only once per session, I'll explain how to do it
+  from code in in [a dedicated paragraph](#conemu) but you can simply display one of the ConEmu sample file with
   `cmd /c type "%ConEmuBaseDir%\Addons\AnsiColors256.ans"` and it'll activate it.
 * On macOS (Tested on sierra) the integrated terminal can display 256 colors without problems but will translate
-  any True Color command to 16 colors, giving a very ugly result. But [iTerm2][iterm2] is free and seem to support
-  everything I could send to it flawlessly.
-* I didn't do any test on linux but most of these codes are xterm extensions so in case of problems, revert to xterm.
+  any True Color command to 16 colors, giving a very ugly result. But [iTerm2][iterm2] is free works !
+* On linux the Gnome default terminal, XTerm and Konsole works flawlessly (XTerm adapt true color codes to 256
+  colors but it's algorithm is pretty good).
 * [Visual Studio Code][vscode] integrated terminal can do most of them and as the REPL provided by the
   [Ionide plugin][ionide] uses it we can use the F# REPL directly there. But **beware** the windows version of the
-  VSCode terminal is pretty buggy at the moment and often completely break when control codes are sent.
+  VSCode terminal is pretty buggy at the moment and often completely break when control codes are sent (Well,
+  resizing it is enough to break it, you don't need much 😁)
 
 Using F# to play with escape sequences
 --------------------------------------
@@ -130,6 +133,9 @@ And we can apply it to a 40x40px version of the FSharp logo :
 
 The code for all of that can be found in [a Gist][gist].
 
+I didn't test the windows insider release so can't tell how well microsoft True Color support in the native console
+works but it's the next thing I want to try.
+
 Appendix A: ConEmu color support<a name="conemu"></a>
 ---------------------------------------------------
 
@@ -151,8 +157,8 @@ After that ConEnu will display what we expect :
 
 ![After](/assets/color-terminal-conemu-256.png)
 
-Appendix B: Enabling escape codes in `cmd.exe`
-----------------------------------------------
+Appendix B: Enabling escape codes in Windows default terminal
+-------------------------------------------------------------
 
 While the windows terminal support escape codes, it doesn't do it directly. They need
 to be enabled using `SetConsoleMode` API :
