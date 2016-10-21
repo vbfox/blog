@@ -13,7 +13,7 @@ dl, dd, ol, ul, figure {
  */
 body {
     background: $background-color;
-	  font: $base-font-size $base-font-family;
+      font: $base-font-size $base-font-family;
     line-height: $base-line-height;
     color: $text-color;
     -webkit-text-size-adjust: 100%;
@@ -85,20 +85,20 @@ li {
  * Headings
  */
 h1 {
-  	font-size: 55px;
-  	position: fixed;
-  	bottom: 0;
-  	left: 9px;
+      font-size: 55px;
+      position: fixed;
+      bottom: 0;
+      left: 9px;
 
     @media only screen {
         @include transform(65px, -5px, -90deg);
         @include transform-origin(0% 100%);
 
         @media (max-width:700px) {
-        		font-size: 25px;
+                font-size: 25px;
 
             @include transform(35px, -5px, -90deg);
-      	}
+          }
 
         @media (max-width:540px) {
             position: relative;
@@ -111,8 +111,8 @@ h1 {
 }
 
 h1, h1 a:link, h1 a:visited, h1 a:hover {
-  	color: #8C96A2;
-  	text-decoration: none;
+      color: #8C96A2;
+      text-decoration: none;
 }
 
 h2, h3, h4, h5, h6 {
@@ -133,8 +133,8 @@ a {
     }
 
     &:hover {
-	       color: #B5CEE2;
-	    text-decoration: underline;
+        color: #B5CEE2;
+        text-decoration: underline;
     }
 
     code {
@@ -166,10 +166,10 @@ blockquote {
  * Code formatting
  */
 code, pre {
-	border-radius: 5px;
-	border: 1px solid #0B0D0F;
-	font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
-	background: #1E2329;
+    border-radius: 5px;
+    border: 1px solid #0B0D0F;
+    font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+    background: #1E2329;
 }
 
 code {
@@ -178,11 +178,11 @@ code {
 }
 
 pre {
-	overflow: auto;
-	width: 100%;
-	height: auto;
-	padding: 5px;
-	margin: 6px 0;
+    overflow: auto;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    margin: 6px 0;
     font-size: 0.9em;
     line-height: 1.2em;
     font-size: 17px;
@@ -192,6 +192,14 @@ pre {
         border: 0;
         padding-right: 0;
         padding-left: 0;
+    }
+
+    @media screen and (max-width: 950px) {
+        font-size: 15px;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 13px;
     }
 }
 
