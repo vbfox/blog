@@ -1,0 +1,48 @@
+{
+    // See https://code.visualstudio.com/docs/editor/tasks
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Local server",
+            "type": "shell",
+            "command": "./build.sh",
+            "windows": {
+                "command": "build.cmd"
+            },
+            "args": [
+                "Serve"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "./build.sh",
+            "windows": {
+                "command": "build.cmd"
+            },
+            "args": [
+                "Build"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Upload",
+            "type": "shell",
+            "command": "./build.sh",
+            "windows": {
+                "command": "build.cmd"
+            },
+            "args": [
+                "Upload"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
