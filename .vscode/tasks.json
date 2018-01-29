@@ -17,7 +17,27 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": []
+            "isBackground": true,
+            "problemMatcher": [
+                {
+                    "fileLocation":"absolute",
+                    "owner": "jekyll",
+                    "pattern": [
+                        {
+                            "regexp": "Error: could not read file (.+?): (.*) at line (\\d+) column (\\d+)$",
+                            "file": 1,
+                            "message": 2,
+                            "line": 3,
+                            "column": 4
+                        }
+                    ],
+                    "background":{
+                        "activeOnStart": true,
+                        "beginsPattern": "^      Regenerating:",
+                        "endsPattern": "...done in [\\d\\.]+ seconds."
+                    }
+                }
+            ]
         },
         {
             "label": "Build",
