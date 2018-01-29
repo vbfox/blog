@@ -17,6 +17,7 @@ exclude:
   - readme.md
   - '*.cmd'
   - '.paket'
+  - 'paket.*'
   - '*.fsx'
   - '.fake'
   - 'packages'
