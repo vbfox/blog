@@ -96,126 +96,149 @@
     font-size: 20px;
 }
 
-.post-list {
-    margin-left: 0;
-    list-style: none;
+.home-page {
+    .pagination {
+        text-align: center;
+        border-top: 1px solid #3e3e3e;
+        margin-top: 4em;
+        padding-top: 1em;
 
-    > li {
+        .previous {
+            border-right: 1px solid #3e3e3e;
+            padding-right: 0.5em;
+            margin-right: 0.5em;
+        }
+
+        span.next, span.previous {
+            color: #3e3e3e;
+        }
+    }
+}
+
+.home-page, .post-page, .posts-page {
+    .post-title {
+        font-size: 28px;
+        letter-spacing: -1px;
+        line-height: 1;
+
+        @include media-query($on-laptop) {
+            font-size: 36px;
+        }
+
+        a {
+            font-size: inherit;
+
+            &, &:hover, &:visited {
+                text-decoration: none;
+            }
+        }
+
+        &, a {
+            color: rgb(255, 211, 97);
+        }
+    }
+
+    .post-meta {
+        margin: 0 8px 0 0;
+        color: #8C96A2;
+        padding: 5px 0 0 0;
+        font-style: italic;
+    }
+}
+
+.posts-page {
+    .post-title {
+        font-size: 1.2em;
+
+        @include media-query($on-laptop) {
+            font-size: 1.2em;
+        }
+    }
+}
+
+.home-page, .post-page {
+    .post-list {
+        margin-left: 0;
+        list-style: none;
+
+        > li {
+            margin-bottom: $spacing-unit;
+        }
+    }
+
+    .post-meta {
+        margin: 0 8px 0 0;
+        color: #8C96A2;
+        padding: 5px 0 0 0;
+        font-style: italic;
+    }
+
+    .post-link {
+        display: block;
+        font-size: 24px;
+    }
+
+
+
+    /**
+    * Posts
+    */
+    .post-separator {
+        text-align: center;
+        font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+        color: #888;
+        padding-top: $spacing-unit / 2;
+        padding-bottom: $spacing-unit / 2;
+    }
+
+    .post-header {
         margin-bottom: $spacing-unit;
     }
-}
 
-.post-meta {
-    margin: 0 8px 0 0;
-  	color: #8C96A2;
-  	padding: 5px 0 0 0;
-  	font-style: italic;
-}
+    .post-content {
+        margin-bottom: $spacing-unit;
+        margin-left: $spacing-unit;
+        margin-right: $spacing-unit;
 
-.post-link {
-    display: block;
-    font-size: 24px;
-}
-
-
-
-/**
- * Posts
- */
-.post-separator {
-    text-align: center;
-    font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
-    color: #888;
-    padding-top: $spacing-unit / 2;
-    padding-bottom: $spacing-unit / 2;
-}
-
-.post-header {
-    margin-bottom: $spacing-unit;
-}
-
-.post-title {
-    font-size: 28px;
-    letter-spacing: -1px;
-    line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
-
-    a {
-        font-size: inherit;
-
-        &, &:hover, &:visited {
-            text-decoration: none;
+        @media (max-width:700px) {
+            margin-left: $spacing-unit / 2;
+            margin-right: $spacing-unit / 2;
         }
-    }
 
-    &, a {
-        color: rgb(255, 211, 97);
-    }
-}
-
-.post-content {
-    margin-bottom: $spacing-unit;
-    margin-left: $spacing-unit;
-    margin-right: $spacing-unit;
-
-    @media (max-width:700px) {
-        margin-left: $spacing-unit / 2;
-        margin-right: $spacing-unit / 2;
-    }
-
-    @media (max-width:540px) {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    h2, h3, h4 {
-      margin-top: 1.5em;
-      margin-bottom: 0.5em;
-      color: #DFD5A4;
-      // border-bottom: 1px solid #493F09;
-    }
-
-    h2 {
-        font-size: 32px;
-
-        @include media-query($on-laptop) {
-            font-size: 28px;
+        @media (max-width:540px) {
+            margin-left: 0;
+            margin-right: 0;
         }
-    }
 
-    h3 {
-        font-size: 26px;
-
-        @include media-query($on-laptop) {
-            font-size: 22px;
+        h2, h3, h4 {
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #DFD5A4;
+        // border-bottom: 1px solid #493F09;
         }
-    }
 
-    h4 {
-        font-size: 20px;
+        h2 {
+            font-size: 32px;
 
-        @include media-query($on-laptop) {
-            font-size: 18px;
+            @include media-query($on-laptop) {
+                font-size: 28px;
+            }
         }
-    }
-}
 
-.pagination {
-    text-align: center;
-    border-top: 1px solid #3e3e3e;
-    margin-top: 4em;
-    padding-top: 1em;
+        h3 {
+            font-size: 26px;
 
-    .previous {
-        border-right: 1px solid #3e3e3e;
-        padding-right: 0.5em;
-        margin-right: 0.5em;
-    }
+            @include media-query($on-laptop) {
+                font-size: 22px;
+            }
+        }
 
-    span.next, span.previous {
-        color: #3e3e3e;
+        h4 {
+            font-size: 20px;
+
+            @include media-query($on-laptop) {
+                font-size: 18px;
+            }
+        }
     }
 }
