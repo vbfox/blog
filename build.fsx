@@ -64,7 +64,7 @@ let uploadFolder localDir remoteDir (options: SessionOptions) =
 
     if not result.IsSuccess then
         let exceptions = result.Failures |> Seq.map (fun e -> e :> Exception)
-        raise (new AggregateException(exceptions))
+        raise (AggregateException(exceptions))
 
 let envVarOrAskUser name question =
     match environVarOrNone name with
@@ -72,7 +72,7 @@ let envVarOrAskUser name question =
     | None -> getUserPassword question
 
 Target "Upload" <| fun _ ->
-    let options = new SessionOptions()
+    let options = SessionOptions()
     options.Protocol <- Protocol.Ftp
     options.FtpSecure <- FtpSecure.Explicit
     options.FtpMode <- FtpMode.Active
