@@ -9,6 +9,7 @@ twitter_username: virtualblackfox
 github_username:  vbfox
 
 # Build settings
+paginate: 5
 markdown: redcarpet
 highlighter: pygments
 exclude:
@@ -21,3 +22,4 @@ exclude:
   - 'packages'
   - 'appveyor.yml'
   - '*.dll'
+gems: [jekyll-paginate]

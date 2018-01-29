@@ -202,3 +202,20 @@
         }
     }
 }
+
+.pagination {
+    text-align: center;
+    border-top: 1px solid #3e3e3e;
+    margin-top: 4em;
+    padding-top: 1em;
+
+    .previous {
+        border-right: 1px solid #3e3e3e;
+        padding-right: 0.5em;
+        margin-right: 0.5em;
+    }
+
+    span.next, span.previous {
+        color: #3e3e3e;
+    }
+}
