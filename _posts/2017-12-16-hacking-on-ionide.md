@@ -74,7 +74,7 @@ We currently want to show it in the editor title menu bar that is documented as 
 ```json
 {
   "contributes": {
-    "menu": {
+    "menus": {
         "editor/title": [
           {
             "command": "fsi.SendFile",
