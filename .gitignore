@@ -3,3 +3,4 @@ _site
 packages
 .fake
 .paket/paket.exe
+paket-files/
