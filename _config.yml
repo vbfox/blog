@@ -22,4 +22,6 @@ exclude:
   - 'packages'
   - 'appveyor.yml'
   - '*.dll'
-gems: [jekyll-paginate]
+gems:
+  - jekyll-paginate
+  - jekyll-feed
