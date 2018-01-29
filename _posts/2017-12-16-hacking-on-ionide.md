@@ -16,9 +16,9 @@ Let's implement a very simple feature and then move to a bigger one! The simple 
 
 ## Getting started
 
-First you'll [need the prerequisites](https://github.com/ionide/ionide-vscode-fsharp/blob/master/CONTRIBUTING.md) (VScode, F#, dotnet, yarn, node, ...) and then let's checkout a commit without the feature, run a first full build and start code :
+First you'll [need the prerequisites](https://github.com/ionide/ionide-vscode-fsharp/blob/master/CONTRIBUTING.md) (VScode, F#, dotnet, yarn, node, ...) then let's checkout a commit without the feature, run a first full build and start code :
 
-``` batch
+```batch
 git clone git@github.com:ionide/ionide-vscode-fsharp.git
 cd ionide-vscode-fsharp
 git checkout -b having_fun c0922fc
@@ -237,11 +237,12 @@ We now have a working minimal sample and can start to build from there:
 * We need to change our directory to the one of the script (the default is the root of the workspace) before running it
 * The fixed title become confusing pretty fast if we run multiple different scripts
 
-For both we might be tempted to use System.IO, but that's not something that's currently translated:
+For both we might be tempted to use `System.IO`, but that's not something that's currently translated:
 
 ```
 ERROR in ./src/Components/ScriptRunner.fs
-G:/Code/_ext/ionide-fs/src/Components/ScriptRunner.fs(24,24): (24,67) error FABLE: Cannot find replacement for System.IO.Path::GetDirectoryName
+G:/Code/_ext/ionide-fs/src/Components/ScriptRunner.fs(24,24): (24,67) error FABLE:
+    Cannot find replacement for System.IO.Path::GetDirectoryName
  @ ./src/fsharp.fs 45:0-71
  @ ./src/Ionide.FSharp.fsproj
 ```
