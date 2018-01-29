@@ -12,7 +12,6 @@ cache:
 install:
 - cmd: set PATH=C:\Ruby22-x64\bin;C:\Python27-x64;%PATH%
 build_script:
-- cmd: gem environment
 - cmd: >-
     build.cmd CI
 artifacts:
