@@ -16,6 +16,7 @@ exclude:
   - Gemfile*
   - readme.md
   - '*.cmd'
+  - '*.sh'
   - '.paket'
   - 'paket.*'
   - '*.fsx'

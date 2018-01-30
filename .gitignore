@@ -1,6 +1,5 @@
-_site
-.sass-cache
-packages
-.fake
-.paket/paket.exe
+_site/
+.sass-cache/
+packages/
+.fake/
 paket-files/
