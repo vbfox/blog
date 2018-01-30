@@ -15,5 +15,6 @@ Build and run (Will be accessible on [http://127.0.0.1:8080](http://127.0.0.1:80
 
 ```bash
 docker build . -t vbfox-blog
-docker run --name vbfox-blog -d -p 8080:80 vbfox-blog
+docker run --name vbfox-blog -it --rm -p 127.0.0.1:8080:80 vbfox-blog
+# Ctrl+C to kill the container
 ```
