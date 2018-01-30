@@ -11,8 +11,17 @@ module WindowsPath =
     open System
     open System.IO
 
-    let path = lazy (Environment.GetEnvironmentVariable("PATH").Split(';') |> List.ofArray)
-    let pathExt = lazy (Environment.GetEnvironmentVariable("PATHEXT").Split(';') |> List.ofArray)
+    let private envVarOrEmpty name =
+        let value = Environment.GetEnvironmentVariable(name)
+        if isNull name then "" else value
+    let path = lazy (
+        (envVarOrEmpty "PATH").Split(Path.PathSeparator) |> List.ofArray)
+    let pathExt = lazy (
+        if Environment.OSVersion.Platform = PlatformID.Win32NT then
+            (envVarOrEmpty "PATHEXT").Split(Path.PathSeparator) |> List.ofArray
+        else
+            [""]
+        )
 
     let find names =
         path.Value
