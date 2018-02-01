@@ -2,15 +2,30 @@
  * Site header
  */
 .site-header {
-    min-height: 56px;
+    min-height: 3rem;
 
-    // Positioning context for the mobile navigation icon
+    @include media-query($on-laptop) {
+        min-height: 2rem;
+    }
+
     position: relative;
+    position: -webkit-sticky;
+    position: sticky;
+    background: $background-color;
+    top: 0px;
+
+    @include media-query($on-palm) {
+        position: relative;
+    }
 }
 
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: 3rem;
+
+    @include media-query($on-laptop) {
+        line-height: 2rem;
+    }
 
     .menu-icon {
         display: none;
@@ -117,12 +132,12 @@
 
 .home-page, .post-page, .posts-page {
     .post-title {
-        font-size: 28px;
+        font-size: 2rem;
         letter-spacing: -1px;
         line-height: 1;
 
         @include media-query($on-laptop) {
-            font-size: 36px;
+            font-size: 1.6rem;
         }
 
         a {
@@ -148,10 +163,10 @@
 
 .posts-page {
     .post-title {
-        font-size: 1.2em;
+        font-size: 1.3rem;
 
         @include media-query($on-laptop) {
-            font-size: 1.2em;
+            font-size: 1.3rem;
         }
     }
 }
@@ -177,8 +192,6 @@
         display: block;
         font-size: 24px;
     }
-
-
 
     /**
     * Posts
@@ -210,34 +223,36 @@
             margin-right: 0;
         }
 
-        h2, h3, h4 {
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-        color: #DFD5A4;
-        // border-bottom: 1px solid #493F09;
+        h1, h2, h3, h4 {
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            color: #DFD5A4;
+            // border-bottom: 1px solid #493F09;
         }
 
-        h2 {
-            font-size: 32px;
+        // h1 should not be used but if it is it's style as h2
+        h1, h2 {
+            font-size: 1.8rem;
+            color: #ffd361;
 
             @include media-query($on-laptop) {
-                font-size: 28px;
+                font-size: 1.4rem;
             }
         }
 
         h3 {
-            font-size: 26px;
+            font-size: 1.5rem;
 
             @include media-query($on-laptop) {
-                font-size: 22px;
+                font-size: 1.2rem;
             }
         }
 
         h4 {
-            font-size: 20px;
+            font-size: 1.2rem;
 
             @include media-query($on-laptop) {
-                font-size: 18px;
+                font-size: 1.1rem;
             }
         }
     }
