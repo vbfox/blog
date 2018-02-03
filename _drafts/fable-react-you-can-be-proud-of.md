@@ -16,64 +16,103 @@ seasoned React developer already know I hope that by the end of the article most
 
 -------------------
 
+TODO:
+
+* Tweaking Should component update
+* Using components as delimiters in react diff algorithm
+* Use ofList/ofArray
+* Concatenation in React vs sprintf
+* Capturing lambdas (Avoiding in pure components & class ones)
+* Test samples
+* Make JSX work on my blog.
+
+-------------------
+
 React components in F#
 ----------------------
 
 While it is possible to use react as a templating engine for HTML by using only build-in components what really unlock
 the power of React and where lie the biggest potential for optimisation is in it's user-defined components.
 
-### Components
+Creating Components in F# is really similar to how they are created in modern Javascript. The main difference come when
+consuming them as their prevalent usage is via JSX in the Javascript world but there is no such transforms in F# and
+React must be used as specified in the [React Without JSX](https://reactjs.org/docs/react-without-jsx.html) guide.
+
+What it mean is that React elements must be created via `React.createElement` sometimes directly but most often via one
+of the helpers provided by `Fable.React`: `ofType`, `ofFunction`...
+
+### Class Component hello world
 
 To create an user-defined component in F# a class must be create that inherit from
 `Fable.React.Component<'props,'state>` and implement at least the mandatory `render()` method that returns a
 `ReactElement`.
 
-While such a class would directly usable in JSX there is no such transforms in F# and React must be used as specified in
-the [React Without JSX](https://reactjs.org/docs/react-without-jsx.html) guide. What it mean is that React elements must
-be created via `React.createElement` and `Fable.React` provide mutiple helpers for that like `ofType` that we will use
-here.
+Here is a simple "Hello World" Component in Javascript (with JSX):
 
-Here is a simple "Hello World" Component:
+```javascript
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
 
-```fsharp
-type HelloWorld(initialProps) =
-    inherit Component<obj, obj>(initialProps)
-    override this.render() =
-        div [] [ str "Hello 🌍" ]
-
-let inline mkHelloWorld p = ofType<HelloWorld,_,_> p []
-
-let test() =
-    ReactDom.render(
-        mkHelloWorld createEmpty<obj>,
-        document.getElementById("placeholder"))
+function test() {
+    const element = <Welcome name="🌍" />
+    ReactDOM.render(element, document.getElementById("root"))
+}
 ```
 
-Displaying a counter
+The same in Javascript (without JSX):
+
+```javascript
+class Welcome extends React.Component {
+  render() {
+    return React.createElement("h1", null, "Hello, ", this.props.name);
+  }
+}
+
+function test() {
+  const element = React.createElement(Welcome, { name: "🌍" });
+  ReactDOM.render(element, document.getElementById("root"));
+}
+```
+
+An now the equivalent F# :
+
+```fsharp
+type [<Pojo>] WelcomeProps = { name: string }
+
+type Welcome(initialProps) =
+    inherit Component<WelcomeProps, obj>(initialProps)
+    override this.render() =
+        h1 [] [ str "Hello "; str this.props.name ]
+
+let test() =
+    let element = createElement(typedefof<Welcome>, { name = "🌍" })
+    ReactDom.render(element, document.getElementById("root"))
+```
+
+A few notes here:
+
+* The F# version looks a lot like the no-JSX version
+* We had to declare `WelcomeProps` while Javascript could do without, and in addition we had to declare it as `[<Pojo>]`
+  to ensure that Fable generate an anonymous JS object instead of creating a class (React reject props passed as class
+  instances)
+* Using `sprintf` in the F# sample could have seemed natural but using React for it is a lot better on a performance
+  standpoint as we'll see later.
+* I used `createElement(typedefof<Welcome>, ...` to mimic the Javascript syntax but the `ofType` is a lot more common as
+  it allow a syntax similar to the one used in the `h1` component and strongly type it's parameters.
+
+### Class Component with state
+
+All features of React are available in Fable and while the more "Functionnal" approach of re-rendering with new props
+is more natural using mutable state is totally possible :
 
 ```fsharp
 type [<Pojo>] CounterDisplayProps = { counter: int }
 
 type CounterDisplay(initialProps) =
-    inherit Component<CounterDisplayProps, obj>(initialProps)
-    override this.render() =
-        div [] [ str "Counter = "; str this.props.counter ]
-
-let inline mkCounterDisplay p = ofType<CounterDisplay,_,_> p []
-
-let test() =
-    ReactDom.render(
-        mkCounterDisplay { counter = 0 },
-        document.getElementById("placeholder"))
-```
-
-A counter that works using state only
-
-```fsharp
-type [<Pojo>] CounterDisplayProps = { counter: int }
-
-type CounterDisplay(initialProps) =
-    inherit Component<CounterDisplayProps, obj>(initialProps)
+    inherit PureStatelessComponent<CounterDisplayProps>(initialProps)
     override this.render() =
         div [] [ str "Counter = "; str this.props.counter ]
 
@@ -96,9 +135,7 @@ type Counter(initialProps) =
 let inline mkCounter () = ofType<Counter,_,_> createEmpty<obj> []
 
 let test() =
-    ReactDom.render(
-        mkCounter (),
-        document.getElementById("placeholder"))
+    ReactDom.render(mkCounter (), document.getElementById("root"))
 ```
 
 Functional Components
