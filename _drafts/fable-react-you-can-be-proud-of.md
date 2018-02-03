@@ -49,7 +49,7 @@ To create an user-defined component in F# a class must be create that inherit fr
 
 Here is a simple "Hello World" Component in Javascript (with JSX):
 
-```javascript
+```jsx
 class Welcome extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>;

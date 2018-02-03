@@ -5,7 +5,6 @@ Uses [Jekyll](https://jekyllrb.com) to generate [blog.vbfox.net](https://blog.vb
 ## Building locally
 
 * Install ruby
-* Install python 2 (Ensure that it's in path)
 * `bundle`
 * `dev.cmd`
 

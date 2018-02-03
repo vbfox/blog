@@ -10,9 +10,9 @@ RUN echo "deb http://download.mono-project.com/repo/debian stretch/snapshots/$MO
   && apt-get install -y mono-runtime binutils curl mono-devel ca-certificates-mono fsharp mono-vbnc nuget referenceassemblies-pcl \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
-# Install Python & Ruby
+# Install Ruby
 RUN apt-get update \
-    && apt-get install -y build-essential python ruby-full \
+    && apt-get install -y build-essential ruby-full \
     && gem install bundler
 
 WORKDIR /build
