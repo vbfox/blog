@@ -6,10 +6,15 @@ layout: default
   <header class="post-header">
     <h2 class="post-title">{{ page.title }}</h2>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    {% if page.toc %}
+    <div class="post-toc">
+      {{ content | toc_only }}
+    </div>
+    {% endif %}
   </header>
 
   <article class="post-content">
-    {{ content }}
+    {{ content | inject_anchors }}
   </article>
 
 </div>

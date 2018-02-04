@@ -27,3 +27,4 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-feed
+  - jekyll-toc
