@@ -69,6 +69,9 @@ figcaption {
  */
 ul, ol {
     margin-left: $spacing-unit;
+}
+
+ul {
     list-style-type: square;
 }
 
@@ -173,7 +176,7 @@ code, pre {
 }
 
 code {
-    color: white;
+    color: #c9c9d6;
     padding: 0 2px;
 }
 
@@ -189,6 +192,7 @@ pre {
     color: #B9BDB6;
 
     > code {
+        color: white;
         border: 0;
         padding-right: 0;
         padding-left: 0;
