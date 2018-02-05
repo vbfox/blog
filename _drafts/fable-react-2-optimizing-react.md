@@ -56,7 +56,7 @@ We can roughly consider for optimization purpose that each component in the tree
 
 ## PureComponent
 
-The first Optimization that is especially useful for us in F# is the PureComponent. It's a component that only update when one of the elements in it's props or state changed and the comparison is done in a shallow way (By comparing references).
+The first Optimization that is especially useful for us in F# is the `PureComponent`. It's a component that only update when one of the elements in it's props or state changed and the comparison is done in a shallow way (By comparing references).
 
 It's ideal when everything you manipulate is immutable, you know like F# records 😉.
 
@@ -97,6 +97,8 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
+![PureComponent demo]({{"/assets/fable-react/pure-component.png" | absolute_url}})
+
 While our canary has no reason to update, each time the button is clicked it will actually
 re-render. But as soon as we convert it to a `PureComponent` it's not updating anymore: None of it's props or state change so react doesn't event call `render()`.
 
@@ -104,7 +106,7 @@ re-render. But as soon as we convert it to a `PureComponent` it's not updating a
 
 If you look in the previous samples, each time I pass a function it's never a lambda declared directly in `render()` or even a member reference but it's a field that point to a member.
 
-The reason for that is that for react to not apply changes for DOM elements or for PureComponent
+The reason for that is that for react to not apply changes for DOM elements or for `PureComponent`
 the references must be the same and lambdas are re-recreated each time so their reference would be different.
 
 But members ? Members stay the same so we should be able to pass `this.Add` and have it work. But
@@ -153,6 +155,8 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
+![PureComponent demo]({{"/assets/fable-react/passing-functions.png" | absolute_url}})
+
 ## Using `toArray`/`toList` and refs
 
 It's tempting in F# to use list expressions to build React children even when we have lists as it
@@ -197,6 +201,8 @@ let inline counter () = ofType<Counter,_,_> createEmpty []
 let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
+
+![PureComponent demo]({{"/assets/fable-react/names-dead.png" | absolute_url}})
 
 It seem that *Chantilly* survives but in fact it's an illusion, a new element is always created at the end with his name, and all others are mutated.
 
@@ -244,11 +250,38 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
+![PureComponent demo]({{"/assets/fable-react/names-ok.png" | absolute_url}})
+
 We could have kept using `yield!` instead of using `ofList` and it would have worked here
-with only the keys but it's better to always use `ofList`.*
+with only the keys but it's better to always use `ofList`.
 
 By using it an array is passed to  React and it will warn us on the console if we forget to use
 `key`.
 
 It also create a new scope, avoiding problems if we wanted to show another list in the same
 parent with keys in common, duplicate keys under a same parent aren't supposed to happen.
+
+## Letting React concatenate
+
+While it's only important with very frequent updates a little detail that can be interesting to look at is how strings are concatenated. The 3 choices are (from better to worse perf):
+
+```fsharp
+override this.render() =
+    ul [] [
+        // React will use it's DOM diffing and provide very fast update
+        li [] [ str "Hello, "; str this.props.name]
+
+        // Javascript concatenation is a also very fast
+        li [] [ str ("Hello, " + this.props.name)]
+
+        // sprintf is more complex and slower, it's perfectly fine for
+        // elements that don't render very often but it's not free
+        li [] [ str (sprintf "Hello, %s" this.props.name)]
+    ]
+```
+
+## That's all folks
+
+Not a lot more to say, avoid `render()`, don't kill the 🐤️🐤️🐤️ !
+
+Next article will be on Elmish and how it tie will all of that.
