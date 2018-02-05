@@ -50,8 +50,14 @@ let execBundle args =
 Target "Install" <| fun _ ->
     execBundle ""
 
+let drafts = environVarOrNone "DRAFTS" <> None
+let future = environVarOrNone "FUTURE" <> None
+
 Target "Build" <| fun _ ->
-    execBundle "exec jekyll build"
+    execBundle
+        (sprintf "exec jekyll build %s %s"
+            (if drafts then "--drafts" else "")
+            (if future then "--future" else ""))
 
 Target "Serve" <| fun _ ->
     execBundle "exec jekyll serve --future --drafts --watch"

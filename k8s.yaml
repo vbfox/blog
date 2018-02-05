@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: vbfox-blog
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vbfox-blog
+    spec:
+      containers:
+      - name: vbfox-blog
+        image: vbfox/blog
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vbfox-blog
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: blog.aks.vbfox.net
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: vbfox-blog

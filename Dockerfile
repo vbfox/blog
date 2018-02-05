@@ -12,7 +12,7 @@ RUN echo "deb http://download.mono-project.com/repo/debian stretch/snapshots/$MO
 
 # Install Ruby
 RUN apt-get update \
-    && apt-get install -y build-essential ruby-full \
+    && apt-get install -y build-essential ruby-full zlib1g-dev \
     && gem install bundler
 
 WORKDIR /build
@@ -25,6 +25,9 @@ RUN bundle
 COPY paket.dependencies paket.lock paket.exe ./
 COPY .paket .paket
 RUN mono paket.exe restore
+
+ARG DRAFTS
+ARG FUTURE
 
 COPY . ./
 RUN ./build.sh

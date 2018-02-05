@@ -16,14 +16,20 @@ Build and run (Will be accessible on [http://127.0.0.1:8080](http://127.0.0.1:80
 docker build . -t vbfox/blog
 docker run --name vbfox-blog -it --rm -p 127.0.0.1:8080:80 vbfox/blog
 # Ctrl+C to kill the container
+
+# To build with future & drafts
+docker build . --build-arg DRAFTS=yes --build-arg FUTURE=yes -t vbfox/blog:drafts
 ```
 
 ## Running in Kubernetes
 
 ```bash
 docker push vbfox/blog
-kubectl create -f blog-k8s.yaml
+kubectl create -f k8s.yaml
 
 # Wait for IP to appear
 kubectl get service vbfox-blog --watch
+
+# Drafts version
+kubectl create -f k8s-drafts.yaml
 ```
