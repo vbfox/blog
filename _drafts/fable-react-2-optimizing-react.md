@@ -5,13 +5,6 @@ tags: Fable, React, Elmish, Performance
 date: 2018-02-06
 ---
 
-TODO:
-
-* Tweaking Should component update
-* Concatenation in React vs sprintf
-* Test samples
-* Functional components in other modules
-
 To optimize React we'll need to dig into how it works and I'll show a series of specific
 optimizations to use.
 
@@ -261,9 +254,71 @@ By using it an array is passed to  React and it will warn us on the console if w
 It also create a new scope, avoiding problems if we wanted to show another list in the same
 parent with keys in common, duplicate keys under a same parent aren't supposed to happen.
 
+## Functional components in other modules
+
+This is more of a current Fable issue/bug that might be solved at some point than something coming from React but it can wreck performance completely.
+
+The problem is that while directly referencing a function like `List.map foo` will generate something like `listMap(foo)` doing the same with a function that is exposed by a module `List.map m.foo` will generate `listMap(foo.m.bind(foo))`, it's necessary when the target function
+is a javascript one as some of them require it but is useless for F# functions. Fable isn't
+currently smart enough to differentiate them.
+
+*Fable was actually doing it for all function creating the problem for all Functional components but I fixed it in a PR released as part of Fable 1.3.8*
+
+This problem has exactly the same cause as the one evoked in **Beware: Passing functions** but it has a simple workaround: Use the function via `ofFunction` in the same module in a **non-inline**
+function and expose that instead of the Functional Component itself.
+
+```fsharp
+// The variable need to be extracted because what happens is worse
+// than just render() being called multiple time: The whole component
+// is re-created on each change !
+let mutable x = 0
+
+type Canary(initialProps) =
+    inherit PureComponent<obj, obj>(initialProps)
+    override this.render() =
+        x <- x + 1
+        div [] [ofInt x; str " = "; str (if x > 1 then "☠️" else "🐤️") ]
+
+let inline canary () = ofType<Canary,_,_> createEmpty []
+
+module WrapperModule =
+    let Wrapper(props: obj) = canary ()
+
+    // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    // Remove 'inline' here and the problem is solved, MAGIC !
+    // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    let inline wrapper () = ofFunction Wrapper createEmpty []
+
+type [<Pojo>] CounterState = { counter: int }
+
+type Counter(initialProps) as this =
+    inherit Component<obj, CounterState>(initialProps)
+    do
+        this.setInitState({ counter = 0})
+
+    let add = this.Add
+
+    member this.Add(_:MouseEvent) =
+        this.setState({ counter = this.state.counter + 1 })
+
+    override this.render() =
+        div [] [
+            WrapperModule.wrapper()
+            div [] [ str "Counter = "; ofInt this.state.counter ]
+            button [OnClick add] [str "👍"]
+        ]
+
+let inline counter () = ofType<Counter,_,_> createEmpty []
+
+let init() =
+    ReactDom.render(counter (), document.getElementById("root"))
+```
+
+![PureComponent demo]({{"/assets/fable-react/pure-component.png" | absolute_url}})
+
 ## Letting React concatenate
 
-While it's only important with very frequent updates a little detail that can be interesting to look at is how strings are concatenated. The 3 choices are (from better to worse perf):
+While it's only important with very frequent updates a little detail that can be interesting to look at is how strings are concatenated. The 3 choices are (from better to worse performance):
 
 ```fsharp
 override this.render() =
@@ -282,6 +337,7 @@ override this.render() =
 
 ## That's all folks
 
-Not a lot more to say, avoid `render()`, don't kill the 🐤️🐤️🐤️ !
+Not a lot more to say, avoid `render()`, don't kill the 🐤️🐤️🐤️ in the Fable mine and everything
+will be fine !
 
-Next article will be on Elmish and how it tie will all of that.
+Next article will be on Elmish and how it tie with all of that.
