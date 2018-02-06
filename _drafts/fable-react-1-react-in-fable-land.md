@@ -188,8 +188,8 @@ let init() =
 
 ![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | relative_url}})
 
-Nothing special here, the only gotcha is that the props passed in the primary constructor while they are in scope in
-the `render()` method should not be used. It can be avoided at the price of a little more complex syntax:
+Nothing special here, the only gotcha is that the props passed in the primary constructor even though they are in scope
+in the `render()` method should not be used. It can be avoided at the price of a little more complex syntax:
 
 ```fsharp
 type Welcome =
@@ -263,7 +263,7 @@ let init() =
 
 ![Counter = 42]({{"/assets/fable-react/state-counter.png" | relative_url}})
 
-*Note: This sample use a few react-friendly optimizations that will be the subject of the second post.*
+*Note: This sample uses a few react-friendly optimizations that will be the subject of the second post.*
 
 ## That's all folks
 
