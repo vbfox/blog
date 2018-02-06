@@ -5,7 +5,7 @@ tags: Fable, React, Elmish, Performance
 date: 2018-02-05
 ---
 
-[Fable][] coupled with [Fable.React][] and [Fable.Elmish.React][] are powerful tools to generate javascript applications. But generating good and performant React code is an already complex task that isn't made simpler by using a different language and a transpiler.
+[Fable][] coupled with [Fable.React][] and [Fable.Elmish.React][] are powerful tools to generate javascript applications. But generating good and fast React code is an already complex task that isn't made simpler by using a different language and a transpiler.
 
 [Fable]: http://fable.io/
 [Fable.React]: https://github.com/fable-compiler/fable-react
@@ -114,10 +114,10 @@ let element =
 
 ## React components
 
-While it is possible to use react as a templating engine for HTML by using only built-in components what really unlock
-the power of React and where lie the biggest potential for optimization is in it's user-defined components.
+While it is possible to use React as a templating engine for HTML by using only built-in components, what really unlocks
+the power of React and where lies the biggest potential for optimization is in its user-defined components.
 
-Creating Components in F# is really similar to how they are created in modern JavaScript. The main difference come when
+Creating Components in F# is really similar to how they are created in modern JavaScript. The main difference comes when
 consuming them as we'll use the `ofType` and `ofFunction` helpers (Instead of using JSX or `React.createElement`).
 
 ### Functional Components
@@ -156,7 +156,7 @@ let init() =
 
 Some notes:
 * We had to declare `WelcomeProps` while JavaScript could do without, and in addition we had to declare it as `[<Pojo>]`
-  to ensure that Fable generate an anonymous JS object instead of creating a class (React reject props passed as class
+  to ensure that Fable generates an anonymous JS object instead of creating a class (React rejects props passed as class
   instances)
 * Using `sprintf` in the F# sample could have seemed natural but using React for it is a lot better on a performance
   standpoint as we'll see later.
