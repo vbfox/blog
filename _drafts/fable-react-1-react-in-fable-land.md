@@ -52,7 +52,7 @@ let init() =
 init()
 ```
 
-![Hello 🌍]({{"/assets/fable-react/hello-world.png" | absolute_url}})
+![Hello 🌍]({{"/assets/fable-react/hello-world.png" | relative_url}})
 
 Creating HTML elements
 ----------------------
@@ -92,7 +92,7 @@ let element =
             // And it can also be used to unconditionally return null, rendering nothing
             li [] [ str "😃"; ofOption None ]
 
-            // ofList allow to expose a list to react, as with any list of elements
+            // ofList allows to expose a list to react, as with any list of elements
             // in React each need an unique and stable key
             [1;2;3]
                 |> List.map(fun i ->
@@ -110,7 +110,7 @@ let element =
         ]
 ```
 
-![Output of helpers demonstration]({{"/assets/fable-react/helpers.png" | absolute_url}})
+![Output of helpers demonstration]({{"/assets/fable-react/helpers.png" | relative_url}})
 
 ## React components
 
@@ -152,7 +152,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | absolute_url}})
+![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | relative_url}})
 
 Some notes:
 * We had to declare `WelcomeProps` while JavaScript could do without, and in addition we had to declare it as `[<Pojo>]`
@@ -186,7 +186,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | absolute_url}})
+![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | relative_url}})
 
 Nothing special here, the only gotcha is that the props passed in the primary constructor while they are in scope in
 the `render()` method should not be used. It can be avoided at the price of a little more complex syntax:
@@ -261,7 +261,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Counter = 42]({{"/assets/fable-react/state-counter.png" | absolute_url}})
+![Counter = 42]({{"/assets/fable-react/state-counter.png" | relative_url}})
 
 *Note: This sample use a few react-friendly optimizations that will be the subject of the second post.*
 

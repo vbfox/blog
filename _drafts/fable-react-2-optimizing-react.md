@@ -90,7 +90,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/pure-component.png" | absolute_url}})
+![PureComponent demo]({{"/assets/fable-react/pure-component.png" | relative_url}})
 
 While our canary has no reason to update, each time the button is clicked it will actually
 re-render. But as soon as we convert it to a `PureComponent` it's not updating anymore: None of it's props or state change so react doesn't event call `render()`.
@@ -148,7 +148,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/passing-functions.png" | absolute_url}})
+![PureComponent demo]({{"/assets/fable-react/passing-functions.png" | relative_url}})
 
 ## Using `toArray`/`toList` and refs
 
@@ -195,7 +195,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/names-dead.png" | absolute_url}})
+![PureComponent demo]({{"/assets/fable-react/names-dead.png" | relative_url}})
 
 It seem that *Chantilly* survives but in fact it's an illusion, a new element is always created at the end with his name, and all others are mutated.
 
@@ -243,7 +243,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/names-ok.png" | absolute_url}})
+![PureComponent demo]({{"/assets/fable-react/names-ok.png" | relative_url}})
 
 We could have kept using `yield!` instead of using `ofList` and it would have worked here
 with only the keys but it's better to always use `ofList`.
@@ -314,7 +314,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/pure-component.png" | absolute_url}})
+![PureComponent demo]({{"/assets/fable-react/pure-component.png" | relative_url}})
 
 ## Letting React concatenate
 
