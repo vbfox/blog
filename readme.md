@@ -24,12 +24,18 @@ docker build . --build-arg DRAFTS=yes --build-arg FUTURE=yes -t vbfox/blog:draft
 ## Running in Kubernetes
 
 ```bash
+# Push all images
 docker push vbfox/blog
-kubectl create -f k8s.yaml
 
-# Wait for IP to appear
+# On first run do a create & Wait for IP to appear
+kubectl create -f k8s.yaml --save-config
 kubectl get service vbfox-blog --watch
 
-# Drafts version
-kubectl create -f k8s-drafts.yaml
+# Same for drafts
+kubectl create -f k8s-drafts.yaml --save-config
+kubectl get service vbfox-blog-drafts --watch
+
+# Later settings changes can be simply applied
+kubectl apply -f k8s.yaml
+kubectl apply -f k8s-drafts.yaml
 ```

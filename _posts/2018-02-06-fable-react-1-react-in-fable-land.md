@@ -2,7 +2,7 @@
 layout: post
 title: "Fable: React you can be proud of ! Part 1: React in Fable land"
 tags: Fable, React, Elmish, Performance
-date: 2018-02-05
+date: 2018-02-06
 ---
 
 [Fable][] coupled with [Fable.React][] and [Fable.Elmish.React][] are powerful tools to generate javascript applications. But generating good and fast React code is an already complex task that isn't made simpler by using a different language and a transpiler.
@@ -16,7 +16,7 @@ to look for when optimizing them.
 
 The posts will be:
 
-1. [React in Fable land]({{ site.baseurl }}{% link _drafts/fable-react-1-react-in-fable-land.md %}) (This one)
+1. [React in Fable land]({{ site.baseurl }}{% link _posts/2018-02-06-fable-react-1-react-in-fable-land.md %}) (This one)
 1. Optimizing React
 1. Applying to Elmish
 
