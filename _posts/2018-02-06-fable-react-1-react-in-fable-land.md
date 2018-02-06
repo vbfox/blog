@@ -105,7 +105,7 @@ let element =
             [1;2;3]
                 |> List.map(fun i ->
                     let si = i.ToString()
-                    li [Key si] [str "🎲 "; str si])
+                    li [] [str "🎲 "; str si])
                 |> fragment []
         ]
 ```
