@@ -261,7 +261,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Counter = 42]({{"/assets/fable-react/state-counter.png" | relative_url}})
+![Counter = 42]({{"/assets/fable-react/state-counter.gif" | relative_url}})
 
 *Note: This sample uses a few react-friendly optimizations that will be the subject of the second post.*
 

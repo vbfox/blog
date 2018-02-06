@@ -90,7 +90,9 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/pure-component.png" | relative_url}})
+Before: ![Dead Canary]({{"/assets/fable-react/pure-component-dead.gif" | relative_url}})
+
+After: ![Living Canary]({{"/assets/fable-react/pure-component-alive.gif" | relative_url}})
 
 While our canary has no reason to update, each time the button is clicked it will actually
 re-render. But as soon as we convert it to a `PureComponent` it's not updating anymore: None of it's props or state change so react doesn't event call `render()`.
@@ -148,7 +150,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/passing-functions.png" | relative_url}})
+![Only the first canary live]({{"/assets/fable-react/passing-functions.gif" | relative_url}})
 
 ## Using `toArray`/`toList` and refs
 
@@ -159,7 +161,7 @@ allow for a very nice syntax, but it can be a performance problem and force usel
 type [<Pojo>] CanaryProps = { name: string }
 
 type Canary(initialProps) =
-    inherit PureComponent<CanaryProps, obj>(initialProps) // <-- Change to PureComponent here
+    inherit PureComponent<CanaryProps, obj>(initialProps)
     let mutable x = 0
     override this.render() =
         x <- x + 1
@@ -195,17 +197,17 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/names-dead.png" | relative_url}})
+![Only the last canary live]({{"/assets/fable-react/names-dead.gif" | relative_url}})
 
 It seem that *Chantilly* survives but in fact it's an illusion, a new element is always created at the end with his name, and all others are mutated.
 
-So let's fix it by assigning an unique key to all our canaries :
+So let's fix it by exposing an array via `toList` and assigning an unique key to all our canaries :
 
 ```fsharp
 type [<Pojo>] CanaryProps = { key: string; name: string }
 
 type Canary(initialProps) =
-    inherit PureComponent<CanaryProps, obj>(initialProps) // <-- Change to PureComponent here
+    inherit PureComponent<CanaryProps, obj>(initialProps)
     let mutable x = 0
     override this.render() =
         x <- x + 1
@@ -243,7 +245,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/names-ok.png" | relative_url}})
+![Every canary live]({{"/assets/fable-react/names-ok.gif" | relative_url}})
 
 We could have kept using `yield!` instead of using `ofList` and it would have worked here
 with only the keys but it's better to always use `ofList`.
@@ -282,7 +284,11 @@ type Canary(initialProps) =
 let inline canary () = ofType<Canary,_,_> createEmpty []
 
 module WrapperModule =
-    let Wrapper(props: obj) = canary ()
+    let Wrapper(props: obj) =
+        div [] [
+            h3 [] [str "In module"]
+            canary ()
+        ]
 
     // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     // Remove 'inline' here and the problem is solved, MAGIC !
@@ -314,7 +320,9 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![PureComponent demo]({{"/assets/fable-react/pure-component.png" | relative_url}})
+Before: ![Dead canary]({{"/assets/fable-react/module-dead.gif" | relative_url}})
+
+After: ![Living canary]({{"/assets/fable-react/module-alive.gif" | relative_url}})
 
 ## Letting React concatenate
 
