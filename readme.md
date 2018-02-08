@@ -1,5 +1,7 @@
 # My blog
 
+[![Build status](https://ci.appveyor.com/api/projects/status/f92nv0mkd85rxkjp/branch/master?svg=true)](https://ci.appveyor.com/project/vbfox/blog/branch/master)
+
 Uses [Jekyll](https://jekyllrb.com) to generate [blog.vbfox.net](https://blog.vbfox.net).
 
 ## Building locally
