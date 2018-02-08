@@ -2,7 +2,7 @@
 layout: post
 title: "Fable: React you can be proud of ! Part 2: Optimizing React"
 tags: Fable, React, Elmish, Performance
-date: 2018-02-07
+date: 2018-02-08
 ---
 
 To optimize React we'll need to dig into how it works and I'll show a series of specific
@@ -10,8 +10,8 @@ optimizations to use.
 
 The post is part of a series on Fable / React optimizations split in 3 parts:
 
-1. [React in Fable land](fable-react-1-react-in-fable-land.html)
-1. [Optimizing React](fable-react-2-optimizing-react.html) (This one)
+1. [React in Fable land]({{ site.baseurl }}{% link _posts/2018-02-06-fable-react-1-react-in-fable-land.md %})
+1. [Optimizing React]({{ site.baseurl }}{% link _posts/2018-02-08-fable-react-2-optimizing-react.md %}) (This one)
 1. Applying to Elmish
 
 ## How does React work

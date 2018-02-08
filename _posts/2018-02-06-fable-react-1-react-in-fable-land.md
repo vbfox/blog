@@ -17,7 +17,7 @@ to look for when optimizing them.
 The posts will be:
 
 1. [React in Fable land]({{ site.baseurl }}{% link _posts/2018-02-06-fable-react-1-react-in-fable-land.md %}) (This one)
-1. Optimizing React
+1. [Optimizing React]({{ site.baseurl }}{% link _posts/2018-02-08-fable-react-2-optimizing-react.md %})
 1. Applying to Elmish
 
 Starting a sample Fable React project
