@@ -11,7 +11,7 @@ until now. The name stands for "Strongly Typed ID types GENerator".
 What it does is to generate C# types to wrap simple types used as identifiers
 (`string` -> `UserId`, `Guid` -> `TweetId`, ...) to have nicely typed code.
 
-A simple `.stidgen` file with the following content :
+A simple `.stidgen` file (The format is documented on the [readme](https://github.com/vbfox/stidgen/blob/master/Readme.md)) with the following content :
 
 ```csharp
 public UserId<string>
@@ -83,10 +83,28 @@ And F# nicely provide most of what stidgen does by default (Equality interfaces 
 * `ToString` isn't handled
 * No `DebuggerDisplay`
 
+*Note: Stidgen generated types works very nicely from F#*
+
 ## The code
 
-Stidgen is an F# project that uses [Roslyn](https://github.com/dotnet/roslyn)
+Stidgen is an F# project that uses [Roslyn](https://github.com/dotnet/roslyn) the C# compiler platform to generate nicely formatted code automatically.
+
+The [`FluentRoslyn.fs`](https://github.com/vbfox/stidgen/blob/1.1.0/src/BlackFox.Stidgen/FluentRoslyn.fs) file in the respository contains an F# wrapper for Roslyn code generation that produce code like that :
+
+```fsharp
+if'
+    (equals info.ThisValueMemberAccess Literal.Null)
+    (block
+        [|
+            ret
+                (invocation
+                    (dottedMemberAccess' ["System"; "Convert"; m.Name])
+                    [| Literal.Null |])
+        |])
+```
 
 ## Conclusion
 
-While it's quite an enterprisy
+Stidgen is a project that we use extensively at work but I feel that we might
+ not be the only ones that want strongly typed code in a C# codebase.
+ So if you have this need or a similar one, why not try it ?
