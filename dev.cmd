@@ -1,3 +1,3 @@
 @echo off
 
-bundle exec jekyll serve --future --watch
+bundle exec jekyll serve --future --watch --drafts
