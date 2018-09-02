@@ -7,6 +7,3 @@ jobs:
       - run:
           name: Build the build container
           command: docker build . --target builder -t vbfox/blog-builder
-      - run:
-          name: Run the build container
-          command: docker run --name vbfox-blog-build -it --rm vbfox/blog-builder
