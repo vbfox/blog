@@ -157,9 +157,7 @@ let init() =
 ![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | relative_url}})
 
 Some notes:
-* We had to declare `WelcomeProps` while JavaScript could do without, and in addition we had to declare it as `[<Pojo>]`
-  to ensure that Fable generates an anonymous JS object instead of creating a class (React rejects props passed as class
-  instances)
+* We had to declare `WelcomeProps` while JavaScript could do without
 * Using `sprintf` in the F# sample could have seemed natural but using React for it is a lot better on a performance
   standpoint as we'll see later.
 
