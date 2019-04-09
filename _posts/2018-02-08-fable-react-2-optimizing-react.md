@@ -65,7 +65,7 @@ type Canary(initialProps) =
 
 let inline canary () = ofType<Canary,_,_> createEmpty []
 
-type [<Pojo>] CounterState = { counter: int }
+type CounterState = { counter: int }
 
 type Counter(initialProps) as this =
     inherit Component<obj, CounterState>(initialProps)
@@ -110,7 +110,7 @@ JavaScript is a weird language where passing `this.Add` would pass the method ad
 It's hard to prove it with the `button` so let's prove it by moving the button creation to our lovely 🐤:
 
 ```fsharp
-type [<Pojo>] CanaryProps = { add: MouseEvent -> unit }
+type CanaryProps = { add: MouseEvent -> unit }
 
 type Canary(initialProps) =
     inherit PureComponent<CanaryProps, obj>(initialProps)
@@ -124,7 +124,7 @@ type Canary(initialProps) =
 
 let inline canary props = ofType<Canary,_,_> props []
 
-type [<Pojo>] CounterState = { counter: int }
+type CounterState = { counter: int }
 
 type Counter(initialProps) as this =
     inherit Component<obj, CounterState>(initialProps)
@@ -158,7 +158,7 @@ It's tempting in F# to use list expressions to build React children even when we
 allows for a very nice syntax, but it can be a performance problem and force useless renders. Let's see a problematic sample:
 
 ```fsharp
-type [<Pojo>] CanaryProps = { name: string }
+type CanaryProps = { name: string }
 
 type Canary(initialProps) =
     inherit PureComponent<CanaryProps, obj>(initialProps)
@@ -171,7 +171,7 @@ let inline canary props = ofType<Canary,_,_> props []
 
 let goodNames = ["Chantilly"; "Pepe"; "Lester"; "Pete"; "Baby"; "Sunny"; "Bluebird"]
 
-type [<Pojo>] CanariesState = { i: int; names: string list }
+type CanariesState = { i: int; names: string list }
 
 type Counter(initialProps) as this =
     inherit Component<obj, CanariesState>(initialProps)
@@ -205,7 +205,7 @@ the end with his name, and all others are mutated.
 So let's fix it by exposing an array via `toList` and assigning an unique key to all our canaries:
 
 ```fsharp
-type [<Pojo>] CanaryProps = { key: string; name: string }
+type CanaryProps = { key: string; name: string }
 
 type Canary(initialProps) =
     inherit PureComponent<CanaryProps, obj>(initialProps)
@@ -218,7 +218,7 @@ let inline canary props = ofType<Canary,_,_> props []
 
 let goodNames = ["Chantilly"; "Pepe"; "Lester"; "Pete"; "Baby"; "Sunny"; "Bluebird"]
 
-type [<Pojo>] CanariesState = { i: int; canaries: (int*string) list }
+type CanariesState = { i: int; canaries: (int*string) list }
 
 type Counter(initialProps) as this =
     inherit Component<obj, CanariesState>(initialProps)
@@ -259,6 +259,8 @@ parent with keys in common (duplicate keys under a same parent aren't supposed t
 
 ## Functional components in other modules
 
+**OBSOLETE: This problem doesn't affect Fable 2**
+
 This is more of a current Fable issue/bug that might be solved at some point than something coming from React but it can wreck performance completely.
 
 The problem is that while directly referencing a function like `List.map foo` will generate something like `listMap(foo)`. Doing the same with a function that is exposed by a module `List.map m.foo` will generate `listMap(foo.m.bind(foo))`. It's necessary when the target function is a javascript one as some of them require it but is useless for F# functions. Fable isn't currently smart enough to differentiate them.
@@ -293,7 +295,7 @@ module WrapperModule =
     // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     let inline wrapper () = ofFunction Wrapper createEmpty []
 
-type [<Pojo>] CounterState = { counter: int }
+type CounterState = { counter: int }
 
 type Counter(initialProps) as this =
     inherit Component<obj, CounterState>(initialProps)

@@ -43,9 +43,11 @@ open Fable.Import.React
 open Fable.Helpers.React
 open Fable.Helpers.React.Props
 
+// -- [BEGIN] part to replace
 let init() =
     let element = str "Hello 🌍"
     ReactDom.render(element, document.getElementById("root"))
+// -- [END] part to replace
 
 init()
 ```
@@ -68,44 +70,46 @@ For HTML elements the resulting syntax is strongly inspired by the [Elm][] one.
 Here is a small sample of the more common ones :
 
 ```fsharp
-let element =
-    // Each HTML element has an helper with the same name
-    ul
-        // The first parameter is the properties of the elements.
-        // For html elements they are specified as a list and for custom
-        // elements it's more typical to find a record creation
-        [ClassName "my-ul"; Id "unique-ul"]
+let init() =
+    let element =
+        // Each HTML element has an helper with the same name
+        ul
+            // The first parameter is the properties of the elements.
+            // For html elements they are specified as a list and for custom
+            // elements it's more typical to find a record creation
+            [ClassName "my-ul"; Id "unique-ul"]
 
-        // The second parameter is the list of children
-        [
-            // str is the helper for exposing a string to React as an element
-            li [] [ str "Hello 🌍" ]
+            // The second parameter is the list of children
+            [
+                // str is the helper for exposing a string to React as an element
+                li [] [ str "Hello 🌍" ]
 
-            // Helpers exists also for other primitive types
-            li [] [ str "The answer is: "; ofInt 42 ]
-            li [] [ str "π="; ofFloat 3.14 ]
+                // Helpers exists also for other primitive types
+                li [] [ str "The answer is: "; ofInt 42 ]
+                li [] [ str "π="; ofFloat 3.14 ]
 
-            // ofOption can be used to return either null or something
-            li [] [ str "🤐"; ofOption (Some (str "🔫")) ]
-            // And it can also be used to unconditionally return null, rendering nothing
-            li [] [ str "😃"; ofOption None ]
+                // ofOption can be used to return either null or something
+                li [] [ str "🤐"; ofOption (Some (str "🔫")) ]
+                // And it can also be used to unconditionally return null, rendering nothing
+                li [] [ str "😃"; ofOption None ]
 
-            // ofList allows to expose a list to react, as with any list of elements
-            // in React each need an unique and stable key
-            [1;2;3]
-                |> List.map(fun i ->
-                    let si = i.ToString()
-                    li [Key si] [str "🎯 "; str si])
-                |> ofList
+                // ofList allows to expose a list to react, as with any list of elements
+                // in React each need an unique and stable key
+                [1;2;3]
+                    |> List.map(fun i ->
+                        let si = i.ToString()
+                        li [Key si] [str "🎯 "; str si])
+                    |> ofList
 
-            // fragment is the <Fragment/> element introduced in React 16 to return
-            // multiple elements
-            [1;2;3]
-                |> List.map(fun i ->
-                    let si = i.ToString()
-                    li [] [str "🎲 "; str si])
-                |> fragment []
-        ]
+                // fragment is the <Fragment/> element introduced in React 16 to return
+                // multiple elements
+                [1;2;3]
+                    |> List.map(fun i ->
+                        let si = i.ToString()
+                        li [] [str "🎲 "; str si])
+                    |> fragment []
+            ]
+    ReactDom.render(element, document.getElementById("root"))
 ```
 
 ![Output of helpers demonstration]({{"/assets/fable-react/helpers.png" | relative_url}})
@@ -138,7 +142,7 @@ function init() {
 And the equivalent in F#:
 
 ```fsharp
-type [<Pojo>] WelcomeProps = { name: string }
+type WelcomeProps = { name: string }
 
 let Welcome { name = name } =
     h1 [] [ str "Hello, "; str name ]
@@ -170,7 +174,7 @@ To create an user-defined component in F# a class must be created that inherit f
 Let's port our "Hello World" Component:
 
 ```fsharp
-type [<Pojo>] WelcomeProps = { name: string }
+type WelcomeProps = { name: string }
 
 type Welcome(initialProps) =
     inherit Component<WelcomeProps, obj>(initialProps)
@@ -187,15 +191,7 @@ let init() =
 ![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | relative_url}})
 
 Nothing special here, the only gotcha is that the props passed in the primary constructor even though they are in scope
-in the `render()` method should not be used. It can be avoided at the price of a little more complex syntax:
-
-```fsharp
-type Welcome =
-    inherit Component<WelcomeProps, obj>
-    new(props) = { inherit Component<_, _>(props) }
-    override this.render() =
-        h1 [] [ str "Hello "; str this.props.name ]
-```
+in the `render()` method should not be used.
 
 ### Class Component with state
 
@@ -204,7 +200,7 @@ is more natural using mutable state is totally possible :
 
 ```fsharp
 // A pure, stateless component that will simply display the counter
-type [<Pojo>] CounterDisplayProps = { counter: int }
+type CounterDisplayProps = { counter: int }
 
 type CounterDisplay(initialProps) =
     inherit PureStatelessComponent<CounterDisplayProps>(initialProps)
@@ -214,7 +210,7 @@ type CounterDisplay(initialProps) =
 let inline counterDisplay p = ofType<CounterDisplay,_,_> p []
 
 // Another pure component displaying the buttons
-type [<Pojo>] AddRemoveProps = { add: MouseEvent -> unit; remove: MouseEvent -> unit }
+type AddRemoveProps = { add: MouseEvent -> unit; remove: MouseEvent -> unit }
 
 type AddRemove(initialProps) =
     inherit PureStatelessComponent<AddRemoveProps>(initialProps)
@@ -227,7 +223,7 @@ type AddRemove(initialProps) =
 let inline addRemove props = ofType<AddRemove,_,_> props []
 
 // The counter itself using state to keep the count
-type [<Pojo>] CounterState = { counter: int }
+type CounterState = { counter: int }
 
 type Counter(initialProps) as this =
     inherit Component<obj, CounterState>(initialProps)
