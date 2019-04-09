@@ -25,17 +25,15 @@ Starting a sample Fable React project
 
 If you want to try the code for yourself you'll need a sample
 
-* Start with the fable template as in the [Getting started guide][getting-started]
-* Replace the `h1` and `canvas` tags in `public/index.html` with `<div id="root"></div>`
-* Ensure that we have the latest stable version of everything: `.paket\paket.exe update`
-* Add `Fable.React` using paket: `.paket/paket.exe add Fable.React -p src/FableApp.fsproj`
-* Add the necessary JS libs with `yarn add react react-dom`
+* Start with the fable template as in the [minimal template][getting-started]
+* Run it in watch mode with `npm start` and connect to it via [http://localhost:8080/](http://localhost:8080/)
+* Replace the `div` tag in `public/index.html` with `<div id="root"></div>`
 * Change the `App.fs` file to look like that:
 
-[getting-started]: http://fable.io/docs/getting-started.html
+[getting-started]: https://github.com/fable-compiler/fable2-samples/tree/master/minimal
 
 ```fsharp
-module FableApp
+module App
 
 open Fable.Core
 open Fable.Core.JsInterop
