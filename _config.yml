@@ -17,13 +17,11 @@ exclude:
   - readme.md
   - '*.cmd'
   - '*.sh'
-  - '.paket'
-  - 'paket.*'
   - '*.fsx'
-  - '.fake'
-  - 'packages'
   - 'appveyor.yml'
   - '*.dll'
+  - 'bin'
+  - 'obj'
 plugins:
   - jekyll-paginate
   - jekyll-feed

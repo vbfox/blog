@@ -1,5 +1,0 @@
-version 5.132.4
-
-source https://api.nuget.org/v3/index.json
-nuget FAKE
-nuget WinSCP
