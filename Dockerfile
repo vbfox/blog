@@ -1,19 +1,17 @@
-FROM debian:stretch-slim AS builder
+FROM ruby:2.5.5-stretch AS builder
 
 # Install Mono
 ENV MONO_VERSION 5.4.1.7
 RUN apt-get update \
   && apt-get install -y gnupg \
-  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+  && APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 RUN echo "deb http://download.mono-project.com/repo/debian stretch/snapshots/$MONO_VERSION main" > /etc/apt/sources.list.d/mono-official.list \
   && apt-get update \
   && apt-get install -y mono-runtime binutils curl mono-devel ca-certificates-mono fsharp mono-vbnc nuget referenceassemblies-pcl \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
-# Install Ruby
-RUN apt-get update \
-    && apt-get install -y build-essential ruby-full zlib1g-dev \
-    && gem install bundler
+# Install Bundler 2 (Image come with v1)
+RUN gem install bundler
 
 WORKDIR /build
 

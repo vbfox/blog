@@ -7,7 +7,8 @@ Uses [Jekyll](https://jekyllrb.com) to generate [blog.vbfox.net](https://blog.vb
 
 ## Building locally
 
-* Install ruby
+* Install ruby 2.5
+* `gem install bundler`
 * `bundle`
 * `dev.cmd`
 
