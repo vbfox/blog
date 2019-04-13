@@ -7,7 +7,8 @@ environment:
   password:
     secure: SHp3N2vcWjhD8xFFopC4ufWnsSbyDowKSa+gCLRrIFA=
 install:
-- cmd: set PATH=C:\Ruby22-x64\bin;C:\Python27-x64;%PATH%
+- cmd: set PATH=C:\Ruby25-x64\bin;C:\Python27-x64;%PATH%
+- cmd: gem install bundler
 build_script:
 - cmd: >-
     build.cmd CI
