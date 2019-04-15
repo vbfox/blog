@@ -1,3 +1,5 @@
 @echo off
 
-dotnet run --project build\build.fsproj -- %*
+pushd build
+dotnet run --project build.fsproj -- %*
+popd

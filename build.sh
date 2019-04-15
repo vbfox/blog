@@ -2,6 +2,6 @@
 
 set -eu
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/build"
 
-dotnet run --project build/build.fsproj -- $@
+dotnet run --project build.fsproj -- $@
