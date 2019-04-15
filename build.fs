@@ -2,7 +2,6 @@ module BlackFox.Blog.Build.Program
 
 open System
 open System.IO
-open System.Diagnostics
 open System.Reflection
 
 open BlackFox
