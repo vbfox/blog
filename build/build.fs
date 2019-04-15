@@ -13,7 +13,13 @@ open Fake.BuildServer
 open WinSCP
 
 let createAndGetDefault () =
-    let rootDir = Path.GetFullPath(__SOURCE_DIRECTORY__)
+    let assemblyDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
+    let rootDir = Path.GetFullPath(assemblyDir </> ".." </> ".." </> ".." </> "..")
+
+    let initTask = BuildTask.create "Init" [] {
+        printfn "Changing current directory to '%s'" rootDir
+        System.Environment.CurrentDirectory <- rootDir
+    }
 
     let getBundlePath() =
         match PathEnvironment.findExecutable "bundle" false with
@@ -25,14 +31,14 @@ let createAndGetDefault () =
         let result = Proc.run p
         if result.ExitCode <> 0 then failwith "Bundle failed"
 
-    let installTask = BuildTask.create "Install" [] {
+    let installTask = BuildTask.create "Install" [initTask] {
         execBundle CmdLine.empty
     }
 
     let drafts = Environment.environVarOrNone "DRAFTS" <> None
     let future = Environment.environVarOrNone "FUTURE" <> None
 
-    let buildTask = BuildTask.create "Build" [installTask.IfNeeded] {
+    let buildTask = BuildTask.create "Build" [initTask; installTask.IfNeeded] {
         let cmdLine =
             CmdLine.fromList ["exec"; "jekyll"; "build"]
             |> CmdLine.appendIf drafts "--drafts"
@@ -40,21 +46,17 @@ let createAndGetDefault () =
         execBundle cmdLine
     }
 
-    let serveTask = BuildTask.create "Serve" [installTask.IfNeeded] {
+    let _serveTask = BuildTask.create "Serve" [initTask; installTask.IfNeeded] {
         let cmdLine =
             CmdLine.fromList ["exec"; "jekyll"; "build"; "--future"; "--drafts"; "--watch"]
         execBundle cmdLine
     }
 
-    let winScpPath =
-        lazy (
-            let assemblyDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
-            Path.Combine(assemblyDir, "WinSCP.exe")
-        )
+    let winScpPath = Path.Combine(assemblyDir, "WinSCP.exe")
 
     let uploadFolder localDir remoteDir (options: SessionOptions) =
         use session = new Session()
-        session.ExecutablePath <- winScpPath.Value
+        session.ExecutablePath <- winScpPath
         session.Open options
 
         let localPath = Path.Combine(localDir, "*")

@@ -4,4 +4,4 @@ set -eu
 
 cd "$(dirname "$0")"
 
-dotnet run --project build.fsproj -- $@
+dotnet run --project build/build.fsproj -- $@
