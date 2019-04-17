@@ -65,7 +65,7 @@ BuildTask.create "Default" [] {
 ### Dependencies
 
 The biggest change is the dependency syntax, `Target` rely on operators chaining
-(or methods doing the same) and he result looks good for linear dependencies:
+(or methods doing the same) and the result looks good for linear dependencies:
 
 ```fsharp
 "Clean"
