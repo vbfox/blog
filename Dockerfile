@@ -47,7 +47,7 @@ RUN bundle
 
 # Initialize nuget packages
 COPY packages.lock.json build.fsproj ./
-RUN dotnet restore --locked-mode build.fsproj
+RUN dotnet restore build.fsproj
 
 ARG DRAFTS
 ARG FUTURE
