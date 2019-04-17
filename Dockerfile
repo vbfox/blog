@@ -46,8 +46,8 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle
 
 # Initialize nuget packages
-COPY packages.lock.json build.fsproj ./
-RUN dotnet restore build.fsproj
+COPY build/global.json build/build.fsproj ./build/
+RUN cd build && dotnet restore build.fsproj
 
 ARG DRAFTS
 ARG FUTURE
