@@ -1,4 +1,5 @@
 _site/
 .sass-cache/
+.ionide/
 build/bin/
 build/obj/
