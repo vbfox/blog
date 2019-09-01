@@ -1,5 +1,8 @@
+$scroll-background: #1e2225;
+$scroll-thumb: #121415;
+
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 16px;
     height: 8px;
 }
 
@@ -8,10 +11,15 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: black;
+    background-color: $scroll-thumb;
 	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-track-piece, ::-webkit-scrollbar-corner {
-    background-color:  #191C1E;
+    background-color: $scroll-background;
+}
+
+html {
+    scrollbar-color: dark;
+    scrollbar-color: $scroll-thumb $scroll-background;
 }
