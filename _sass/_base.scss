@@ -257,4 +257,10 @@ pre {
             fill: $grey-color;
         }
     }
+
+    &.icon--mastodon {
+        path:nth-of-type(2) {
+            fill: $background-color;
+        }
+    }
 }
