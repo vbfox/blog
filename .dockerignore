@@ -2,3 +2,4 @@ _site/
 .sass-cache/
 build/bin/
 build/obj/
+.github/
