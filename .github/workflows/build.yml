@@ -9,3 +9,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . -t blog
+      - name: Copy generated files locally
+        run: |
+          id=$(docker create blog)
+          docker cp $id:/build/_site ./site
+          docker rm -v $id
+      - uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: ./site
