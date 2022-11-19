@@ -15,7 +15,7 @@
       <div class="trigger">
         <a class="page-link {% if page.url == '/' or page.layout == 'post' %}active{% endif %}" href="{{ site.baseurl }}/">blog</a>
         <a class="page-link {% if page.url == '/archive/' %}active{% endif %}" href="{{ site.baseurl }}/archive/">archive</a>
-        <a class="page-link" href="https://www.linkedin.com/in/julienroncaglia/">cv</a>
+        <a class="page-link" href="https://www.linkedin.com/in/julienroncaglia/" rel="me">cv</a>
 
         {% for otherPage in site.pages %}
           {% if otherPage.title %}
