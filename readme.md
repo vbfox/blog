@@ -16,11 +16,18 @@ Uses [Jekyll](https://jekyllrb.com) to generate [blog.vbfox.net](https://blog.vb
 
 Build and run (Will be accessible on [http://127.0.0.1:8080](http://127.0.0.1:8080))
 
-```bash
+```sh
 docker build . -t vbfox/blog
 docker run --name vbfox-blog -it --rm -p 127.0.0.1:8080:80 vbfox/blog
 # Ctrl+C to kill the container
 
 # To build with future & drafts
 docker build . --build-arg DRAFTS=yes --build-arg FUTURE=yes -t vbfox/blog:drafts
+```
+
+# Uploading to the server
+
+```sh
+./build.cmd Upload
+# Enter password for blog_upload
 ```
