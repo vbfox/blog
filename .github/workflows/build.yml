@@ -12,7 +12,7 @@ jobs:
       - name: Copy generated files locally
         run: |
           id=$(docker create blog)
-          docker cp $id:/build/_site ./site
+          docker cp $id:/usr/share/nginx/html ./site
           docker rm -v $id
       - uses: actions/upload-artifact@v3
         with:
