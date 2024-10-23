@@ -11,4 +11,7 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
     <meta name="theme-color" content="#23272A" />
+    {% if site.mastodon_username %}
+    <meta name="fediverse:creator" content="@{{ site.mastodon_username }}@{{ site.mastodon_domain }}">
+    {% endif %}
 </head>
