@@ -1,16 +1,5 @@
 FROM ruby:2.7.8-bullseye AS base
 
-# Install .NET CLI dependencies
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        libc6 \
-        libgcc1 \
-        libgssapi-krb5-2 \
-        liblttng-ust0 \
-        libstdc++6 \
-        zlib1g \
-    && rm -rf /var/lib/apt/lists/*
-
 # Install .NET Core SDK
 ENV DOTNET_SDK_VERSION=9.0.201
 
