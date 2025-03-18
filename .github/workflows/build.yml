@@ -6,7 +6,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build the Docker image
         run: docker build . -t blog
       - name: Copy generated files locally
@@ -14,7 +14,7 @@ jobs:
           id=$(docker create blog)
           docker cp $id:/usr/share/nginx/html ./site
           docker rm -v $id
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: site
           path: ./site
