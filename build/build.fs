@@ -72,15 +72,22 @@ let createAndGetDefault () =
         | Some x -> x
         | None -> UserInput.getUserPassword question
 
-    let uploadTask = BuildTask.create "Upload" [buildTask] {
+    let upload () =
         let options = SessionOptions()
         options.Protocol <- Protocol.Ftp
         options.FtpSecure <- FtpSecure.Explicit
         options.FtpMode <- FtpMode.Active
-        options.HostName <- "vbfox.net"
+        options.HostName <- "ftp.vbfox.net"
         options.UserName <- "blog_upload"
         options.Password <- envVarOrAskUser "password" "FTP Password: "
         uploadFolder (rootDir </> "_site") "/" options
+
+    let uploadTask = BuildTask.create "Upload" [buildTask] {
+        upload ()
+    }
+
+    let _uploadOnlyTask = BuildTask.create "UploadOnly" [] {
+        upload ()
     }
 
     let _ciTask = BuildTask.createEmpty "CI" [installTask; uploadTask]

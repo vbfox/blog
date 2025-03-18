@@ -3,8 +3,9 @@ name: build
 on: [push]
 
 jobs:
-  docker:
+  docker-build:
     runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/master' && 'production' || 'dev' }}
     steps:
       - uses: actions/checkout@v4
       - name: Build the Docker image
@@ -12,9 +13,15 @@ jobs:
       - name: Copy generated files locally
         run: |
           id=$(docker create blog)
-          docker cp $id:/usr/share/nginx/html ./site
+          docker cp $id:/usr/share/nginx/html ./_site
           docker rm -v $id
       - uses: actions/upload-artifact@v4
         with:
           name: site
-          path: ./site
+          path: ./_site
+      - name: Upload
+        if: github.ref == 'refs/heads/master'
+        env:
+          password: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          ./build.sh UploadOnly
