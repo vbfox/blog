@@ -1,4 +1,4 @@
-FROM ruby:2.5.5-stretch AS builder
+FROM ruby:2.7.8-bullseye AS builder
 
 # Install .NET CLI dependencies
 RUN apt-get update \
@@ -6,15 +6,15 @@ RUN apt-get update \
         libc6 \
         libgcc1 \
         libgssapi-krb5-2 \
-        libicu57 \
+        #libicu57 \
         liblttng-ust0 \
-        libssl1.0.2 \
+        #libssl1.0.2 \
         libstdc++6 \
         zlib1g \
     && rm -rf /var/lib/apt/lists/*
 
 # Install .NET Core SDK
-ENV DOTNET_SDK_VERSION 2.2.106
+ENV DOTNET_SDK_VERSION=2.2.106
 
 RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz \
     && dotnet_sha512='cf1cf0cd909bd622b623a6bb96adba705dd0daa217ea8a791e3c6d932f3ded24d28802609498fac20c15ad587d1dc2cf16c1607af1c7b0cddeba02fbaefedc53' \
@@ -37,7 +37,7 @@ ENV ASPNETCORE_URLS=http://+:80 \
 RUN dotnet help
 
 # Install Bundler 2 (Image come with v1)
-RUN gem install bundler
+RUN gem install bundler -v 2.4.22
 
 WORKDIR /build
 
