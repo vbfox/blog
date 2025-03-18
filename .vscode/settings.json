@@ -4,5 +4,6 @@
     ],
     "spellright.documentTypes": [
         "markdown"
-    ]
+    ],
+    "FSharp.inlayHints.typeAnnotations": false
 }
