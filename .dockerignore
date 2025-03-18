@@ -1,5 +1,8 @@
 _site/
 .sass-cache/
+.github/
+.vscode/
 build/bin/
 build/obj/
 .github/
+Dockerfile

@@ -1,4 +1,4 @@
-FROM ruby:2.7.8-bullseye AS builder
+FROM ruby:2.7.8-bullseye AS base
 
 # Install .NET CLI dependencies
 RUN apt-get update \
@@ -12,10 +12,11 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install .NET Core SDK
-ENV DOTNET_SDK_VERSION=2.2.106
+ENV DOTNET_SDK_VERSION=9.0.201
 
 RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz \
-    && dotnet_sha512='cf1cf0cd909bd622b623a6bb96adba705dd0daa217ea8a791e3c6d932f3ded24d28802609498fac20c15ad587d1dc2cf16c1607af1c7b0cddeba02fbaefedc53' \
+    && dotnet_sha512='93a8084ef38da810c3c96504c20ea2020a6b755b73a19f7acc6cd73a8b62ace0adda14452d11e6458f73dc7d58ffad22fcd151f111d2320cb23a10fd54dcb772' \
+    && echo "dotnet.tar.gz" | sha512sum - \
     && echo "$dotnet_sha512 dotnet.tar.gz" | sha512sum -c - \
     && mkdir -p /usr/share/dotnet \
     && tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
@@ -47,12 +48,14 @@ RUN bundle
 COPY build/global.json build/build.fsproj ./build/
 RUN cd build && dotnet restore build.fsproj
 
+FROM base AS builder
+
 ARG DRAFTS
 ARG FUTURE
 
 COPY . ./
 RUN ./build.sh
 
-FROM nginx
+FROM nginx AS server
 WORKDIR /site
 COPY --from=builder /build/_site /usr/share/nginx/html
