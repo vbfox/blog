@@ -53,7 +53,7 @@ It's ideal when everything you manipulate is immutable, you know, like F# record
 
 Let's take a small sample to see how it's good for us. Test it as-is and with the `Component` replaced with a `PureComponent` :
 
-```fsharp
+```fs
 type Canary(initialProps) =
     inherit Component<obj, obj>(initialProps) // <-- Change to PureComponent here
     let mutable x = 0
@@ -107,7 +107,7 @@ JavaScript is a weird language where passing `this.Add` would pass the method ad
 
 It's hard to prove it with the `button` so let's prove it by moving the button creation to our lovely 🐤:
 
-```fsharp
+```fs
 type CanaryProps = { add: MouseEvent -> unit }
 
 type Canary(initialProps) =
@@ -155,7 +155,7 @@ let init() =
 It's tempting in F# to use list expressions to build React children even when we have lists as it
 allows for a very nice syntax, but it can be a performance problem and force useless renders. Let's see a problematic sample:
 
-```fsharp
+```fs
 type CanaryProps = { name: string }
 
 type Canary(initialProps) =
@@ -202,7 +202,7 @@ the end with his name, and all others are mutated.
 
 So let's fix it by exposing an array via `toList` and assigning an unique key to all our canaries:
 
-```fsharp
+```fs
 type CanaryProps = { key: string; name: string }
 
 type Canary(initialProps) =
@@ -267,7 +267,7 @@ The problem is that while directly referencing a function like `List.map foo` wi
 
 This problem has exactly the same cause as the one evoked in **Beware: Passing functions** but it has a simple workaround: use the function via `ofFunction` in the same module in a **non-inline** function and expose that instead of the Functional Component itself.
 
-```fsharp
+```fs
 // The variable need to be extracted because what happens is worse
 // than just render() being called multiple time: The whole component
 // is re-created on each change !
@@ -326,7 +326,7 @@ After: ![Living canary](/assets/fable-react/module-alive.gif)
 
 While it's only important with very frequent updates a little detail that can be interesting to look at is how strings are concatenated. The 3 choices are (from better to worse performance):
 
-```fsharp
+```fs
 override this.render() =
     ul [] [
         // React will use it's DOM diffing and provide very fast update

@@ -30,7 +30,7 @@ If you want to try the code for yourself you'll need a sample
 
 [getting-started]: https://github.com/fable-compiler/fable2-samples/tree/master/minimal
 
-```fsharp
+```fs
 module App
 
 open Fable.Core
@@ -67,7 +67,7 @@ For HTML elements the resulting syntax is strongly inspired by the [Elm][] one.
 
 Here is a small sample of the more common ones :
 
-```fsharp
+```fs
 let init() =
     let element =
         // Each HTML element has an helper with the same name
@@ -139,7 +139,7 @@ function init() {
 
 And the equivalent in F#:
 
-```fsharp
+```fs
 type WelcomeProps = { name: string }
 
 let Welcome { name = name } =
@@ -169,7 +169,7 @@ To create an user-defined component in F# a class must be created that inherit f
 
 Let's port our "Hello World" Component:
 
-```fsharp
+```fs
 type WelcomeProps = { name: string }
 
 type Welcome(initialProps) =
@@ -184,7 +184,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Hello, 🌍](/assets/fable-react/components-h1.png")
+![Hello, 🌍](/assets/fable-react/components-h1.png)
 
 Nothing special here, the only gotcha is that the props passed in the primary constructor even though they are in scope
 in the `render()` method should not be used.
@@ -194,7 +194,7 @@ in the `render()` method should not be used.
 All features of React are available in Fable and while the more "Functional" approach of re-rendering with new props
 is more natural using mutable state is totally possible :
 
-```fsharp
+```fs
 // A pure, stateless component that will simply display the counter
 type CounterDisplayProps = { counter: int }
 

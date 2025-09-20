@@ -170,7 +170,7 @@ To do that well go back to `package.json` and add our new command:
 
 We'll also need to add a new file to host our code in `src/Components/ScriptRunner.fs` and add it to the `.fsproj` file. (After this step the `watch` script might need to be restarted manually to pickup the new file)
 
-```fsharp
+```fs
 namespace Ionide.VSCode.FSharp
 
 open System
@@ -190,7 +190,7 @@ module ScriptRunner =
 
 Adding the call to activate in `fsharp.fsx` is the final touch and our new button will finally do something (Even if it's only writing "Hello world" to the Debug Console)
 
-```fsharp
+```fs
 // ...
 Forge.activate context
 Fsi.activate context // <--- Line added here
@@ -206,7 +206,7 @@ ScriptRunner.activate context
 
 Let's start with the most simple addition, creating a terminal with a fixed name that run `fsi.exe` with the current file as single parameter
 
-```fsharp
+```fs
 let private runFile () =
     let scriptFile = window.activeTextEditor.document.fileName
     let terminal = window.createTerminal("script", Environment.fsi, [| scriptFile|])
@@ -221,7 +221,7 @@ Ideally we would use it's arguments that allow to run commands but windows progr
 
 But VSCode allow us to send simulated keystrokes to the terminal so we'll use this
 
-```fsharp
+```fs
 let private runFile () =
     let scriptFile = window.activeTextEditor.document.fileName
     let terminal = window.createTerminal("script", "cmd.exe", [||])
@@ -248,7 +248,7 @@ G:/Code/_ext/ionide-fs/src/Components/ScriptRunner.fs(24,24): (24,67) error FABL
 
 The solution is to use the [NodeJS Path API](https://nodejs.org/api/path.html) directly, the whole NodeJS API is provided by Fable in the [Fable.Import.Node Nuget package](https://www.nuget.org/packages/Fable.Import.Node/) that Ionide already import
 
-```fsharp
+```fs
 open Fable.Import.Node
 
 let private runFile () =
@@ -263,7 +263,7 @@ let private runFile () =
 
 Now let's cleanup, add unix support and we're ready to send a PR:
 
-```fsharp
+```fs
 namespace Ionide.VSCode.FSharp
 
 open System

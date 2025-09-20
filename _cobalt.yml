@@ -11,8 +11,6 @@ site:
   base_url: "https://blog.vbfox.net"
 posts:
   rss: rss.xml
-syntax_highlight:
-  enabled: true
 default:
   layout: post.liquid
 ignore:

@@ -1,5 +1,5 @@
 ---
-layout: "default.html"
+layout: default.liquid
 ---
 
 <div class="posts-page">
@@ -7,7 +7,7 @@ layout: "default.html"
   <ul class="post-list">
     {% for post in collections.posts.pages %}
       <li class="post">
-          <a class="post-title post-link" href="{{ post.permalink | prepend: site.base_url }}">{{ post.title }}</a>
+          <a class="post-title post-link" href="/{{ post.permalink }}">{{ post.title }}</a>
           <span class="post-meta">{{ post.published_date | date: "%b %-d, %Y" }}</span>
       </li>
     {% endfor %}

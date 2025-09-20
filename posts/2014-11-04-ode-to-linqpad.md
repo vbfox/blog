@@ -32,7 +32,7 @@ this connection.
 To start exploring we'll select some data to look at what fields are available
 and how they look:
 
-```csharp
+```cs
 void Main()
 {
     Packages.Take(10).Dump();
@@ -47,7 +47,7 @@ To search for a package we will want to filter by `Id` and get only the latest
 non-prerelease version so the fields we are interested in are
 `IsAbsoluteLatestVersion` and `IsPrerelease` in addition to `Id` :
 
-```csharp
+```cs
 void Main()
 {
     var search = Util.ReadLine("Id");
@@ -73,7 +73,7 @@ from the information we already have.
 As NuGet is open-source we can read the [source code][5] and find how package
 download urls are constructed :
 
-```csharp
+```cs
 // Route to get packages
 routes.MapDelegate("DownloadPackage",
                    "api/v2/package/{packageId}/{version}",
@@ -89,7 +89,7 @@ when passed to `Dump` show a clickable link in the output window.
 The link can be constructed with an `Action` delegate that will be executed when
 clicked but for such a simple case we'll use the version taking directly an URL:
 
-```csharp
+```cs
 foreach(var package in packages)
 {
     var url = string.Format(@"https://www.nuget.org/api/v2/package/{0}/{1}",

@@ -13,7 +13,7 @@ It is now available [on nuget][nuget] as a preview version of 0.1.2 and the sour
 The API is described in more details in the [readme][readme] but here is a small taste of the possibilities with a
 proof-of-concept `sqlCommandf` implementation :
 
-```fsharp
+```fs
 module SqlCommandBuilder =
     open System.Text
     open BlackFox.MasterOfFoo

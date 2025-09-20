@@ -43,7 +43,7 @@ designating the command. The full list is on [Wikipedia][wikipedia] or [MSDN][ms
 
 Let's try that in F# :
 
-```fsharp
+```fs
 let esc = string (char 0x1B)
 System.Console.WriteLine(esc + "[31;1m" + "Hello world" + esc + "[0m")
 ```
@@ -56,7 +56,7 @@ without it the terminal would stay red on all following lines.
 
 Using `kprintf` we can create a printf-like function and start implementing a few of the escape sequences :
 
-```fsharp
+```fs
 let csi = esc + "["
 let printsequencef f = Printf.kprintf (fun s -> System.Console.Write(esc + s)) f
 let printcsif f = Printf.kprintf (fun s -> System.Console.Write(csi + s)) f
@@ -74,7 +74,7 @@ Until then we've done nothing very interesting, after all the .Net console alrea
 color to bright red, nothing new under the sun. But what the .Net console or Windows native API doesn't support
 is the `38` and `48` graphics sub-commands, extended foreground an background colors.
 
-```fsharp
+```fs
 let setExtendedForeground i = selectGraphicRendition [38; 5; i]
 let setExtendedBackground i = selectGraphicRendition [48; 5; i]
 let setForegroundRgb r g b = selectGraphicRendition [38; 2; r; g; b]
@@ -89,7 +89,7 @@ mode but interpolate any R;G;B code to 16 colors.
 
 Let's see what the palete looks like :
 
-```fsharp
+```fs
 let extendedBlock i =
     for j in i..i+5 do
         setExtendedBackground j
@@ -112,7 +112,7 @@ We need to be true to our colors
 
 Now that we know how to draw with true colors we can draw pictures on the terminal :
 
-```fsharp
+```fs
 open System.Drawing
 
 let showBitmap path =
@@ -145,7 +145,7 @@ compatibility reasons the support isn't always on.
 
 To trigger it an application must first scroll the terminal far away at least once with the `T` command :
 
-```fsharp
+```fs
 let scrollUp (lines: int) = printcsif "%iS" lines
 let scrollDown (lines: int) = printcsif "%iT" lines
 scrollDown 9999
@@ -162,7 +162,7 @@ After that ConEnu will display what we expect :
 While the windows terminal support escape codes, it doesn't do it directly. They need
 to be enabled using `SetConsoleMode` API :
 
-```fsharp
+```fs
 #nowarn "9"
 module DllImports =
     open System.Runtime.InteropServices

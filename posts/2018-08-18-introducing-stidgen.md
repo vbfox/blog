@@ -12,7 +12,7 @@ What it does is to generate C# types to wrap simple types used as identifiers
 
 A simple `.stidgen` file (The format is documented on the [readme](https://github.com/vbfox/stidgen/blob/master/Readme.md)) with the following content :
 
-```csharp
+```cs
 public UserId<string>
 public CompanyId<string>
 public UploadedFileId<Guid>
@@ -20,7 +20,7 @@ public UploadedFileId<Guid>
 
 Generate [a 837 lines file](https://github.com/vbfox/stidgen/blob/1.1.0/samples/Simple.Generated.cs), the types can then be used to get readable type signatures :
 
-```csharp
+```cs
 interface IPopulationQueries
 {
     UserInfo GetUserInfo(UserId id);
@@ -63,7 +63,7 @@ While stidgen is written in F# it doesn't provide a way to generate ID types in 
 
 The solution to the same problem in F# is to use a single-case discriminated union:
 
-```fsharp
+```fs
 [<Struct>]
 type UserId = | UserId of string
 
@@ -90,7 +90,7 @@ Stidgen is an F# project that uses [Roslyn](https://github.com/dotnet/roslyn) th
 
 The [`FluentRoslyn.fs`](https://github.com/vbfox/stidgen/blob/1.1.0/src/BlackFox.Stidgen/FluentRoslyn.fs) file in the respository contains an F# wrapper for Roslyn code generation that produce code like that :
 
-```fsharp
+```fs
 if'
     (equals info.ThisValueMemberAccess Literal.Null)
     (block

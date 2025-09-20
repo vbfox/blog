@@ -15,7 +15,7 @@ signature as `printf` and `printfn` (It uses my [MasterOfFoo][masteroffoo] libra
 Example
 -------
 
-```fsharp
+```fs
 colorprintfn "Hello $red[world]."
 colorprintfn "Hello $green[%s]." "user"
 colorprintfn "$white[Progress]: $yellow[%.2f%%] (Eta $yellow[%i] minutes)" 42.33 5

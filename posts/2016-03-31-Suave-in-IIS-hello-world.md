@@ -14,7 +14,7 @@ to get the `Suave` package but the standard NuGet UI would work as well (albeit 
 
 The minimal hello world is simply :
 
-```fsharp
+```fs
 open Suave
 
 [<EntryPoint>]
@@ -116,7 +116,7 @@ In the current state, **HttpPlatformHandler** will start your executable, kill i
 and restart it in a loop because it will never see it listening on it's specified port
 so we need to read the port from the environment variable :
 
-```fsharp
+```fs
 module IISHelpers =
     open System
 
@@ -133,7 +133,7 @@ module IISHelpers =
 And then when we detect that we're started from IIS (Because `IISHelpers.httpPlatformPort`
 is `Some`) we can configure Suave to listen locally on that port and nowhere else :
 
-```fsharp
+```fs
 open Suave
 
 [<EntryPoint>]

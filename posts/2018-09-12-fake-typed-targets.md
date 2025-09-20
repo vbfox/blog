@@ -22,7 +22,7 @@ With FAKE 5 moving to small modules it's the occasion to choose a good name
 `Target` has a very stringly-typed API, strings are used everywhere as identifiers, with the consequence that their
 value is only verified when the script is executed.
 
-```fsharp
+```fs
 Target.create "Default" (fun _ ->
   (* ... *)
 )
@@ -33,7 +33,7 @@ Target.runOrDefault "Defautl"
 In `BuildTask` each created task returns a value that represent it and the compiler check the value usage as with any
 other variable.
 
-```fsharp
+```fs
 let defaultTask = BuildTask.createFn "Default" [] (fun _ ->
   (* ... *)
 )
@@ -46,13 +46,13 @@ BuildTask.runOrDefault defaultTask
 While FAKE `Target.create` expect a function as parameter `BuildTask.create` uses a computation expression to do the
 same (Like [Expecto](https://github.com/haf/expecto#writing-tests)), removing a little bit of verbosity for each target:
 
-```fsharp
+```fs
 Target.create "Default" (fun _ ->
   (* ... *)
 )
 ```
 
-```fsharp
+```fs
 BuildTask.create "Default" [] {
   (* ... *)
 }
@@ -65,7 +65,7 @@ BuildTask.create "Default" [] {
 The biggest change is the dependency syntax, `Target` rely on operators chaining
 (or methods doing the same) and the result looks good for linear dependencies:
 
-```fsharp
+```fs
 "Clean"
  ==> "BuildApp"
  ==> "BuildTests"
@@ -81,7 +81,7 @@ tests shouldn't require building the app.
 
 The real dependencies are more like:
 
-```fsharp
+```fs
 "Clean" =?> "BuildApp"
 "Clean" =?> "BuildTests"
 "Clean" ==> "CI"
@@ -108,7 +108,7 @@ gulp.task("default", ["css", "test"], function() { /* ...*/ });
 
 `BuildTask` uses a similar syntax:
 
-```fsharp
+```fs
 let clean = BuildTask.create "Clean" [] { (* ... *) }
 
 let buildApp = BuildTask.create "BuildApp" [clean.IfNeeded] { (* ... *) }
@@ -135,7 +135,7 @@ Here are a few of the samples on the FAKE getting started page ported to `BuildT
 
 [GETTING STARTED](https://fake.build/fake-gettingstarted.html#Getting-started):
 
-```fsharp
+```fs
 #r "paket:
 nuget BlackFox.Fake.BuildTask
 nuget Fake.Core.Target //"
@@ -155,7 +155,7 @@ BuildTask.runOrDefault defaultTask
 
 [CLEANING THE LAST BUILD OUTPUT](https://fake.build/fake-gettingstarted.html#Cleaning-the-last-build-output):
 
-```fsharp
+```fs
 #r "paket:
 nuget BlackFox.Fake.BuildTask
 nuget Fake.IO.FileSystem
