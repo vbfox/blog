@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Suave in IIS - Hello world"
 tags: ["Suave", "F#", "IIS", "Proxy"]
 ---

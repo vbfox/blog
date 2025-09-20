@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "First release for MasterOfFoo"
 tags: ["F#", "MasterOfFoo"]
 ---

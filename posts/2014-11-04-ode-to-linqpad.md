@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Ode to LINQPad"
 tags: ["C#"]
 ---

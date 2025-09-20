@@ -1,5 +1,5 @@
 ---
-layout: post.html
+
 title: "Fable: Building in a docker container"
 tags: Fable, Docker, DevOps
 date: 2018-02-06

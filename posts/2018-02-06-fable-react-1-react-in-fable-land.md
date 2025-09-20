@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Fable: React you can be proud of ! Part 1: React in Fable land"
 tags: ["Fable", "React", "Elmish", "Performance"]
 ---

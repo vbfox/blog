@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Using svndumpfilter to extract a folder in it's own repository"
 tags: ["Linux", "SVN"]
 ---

@@ -1,5 +1,5 @@
 ---
-layout: post.html
+
 title: "Hermetic .NET builds with FAKE"
 tags: F#, FAKE, Build, DevOps
 ---

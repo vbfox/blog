@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "SSL Observatory how to load the db"
 tags: ["Debian", "EFF", "Linux", "SSL-Observatory"]
 ---

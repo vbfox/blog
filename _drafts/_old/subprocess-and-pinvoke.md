@@ -1,5 +1,5 @@
 ---
-layout: post.html
+
 title: "Subprocess and PInvoke"
 tags: C#, Paket, PInvoke
 ---

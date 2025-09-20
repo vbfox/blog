@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "More F# colors in the terminal"
 tags: ["F#", "Terminal", "XTerm"]
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Using CommandBindings in MVVM"
 tags: ["C#", "MVVM", "WPF"]
 ---

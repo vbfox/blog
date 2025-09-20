@@ -1,7 +1,3 @@
-template_extensions:
-  - md
-  - liquid
-  - html
 site:
   title: Blog of a Fox
   description: >
@@ -12,7 +8,12 @@ site:
     mastodon_username: vbfox
     mastodon_domain: hachyderm.io
     email: fox@vbfox.net
+  base_url: "https://blog.vbfox.net"
 posts:
   rss: rss.xml
 syntax_highlight:
   enabled: true
+default:
+  layout: post.liquid
+ignore:
+  - readme.md

@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Gmail \"mark as unread\" now works correctly !"
 tags: ["Gmail", "Rants"]
 ---

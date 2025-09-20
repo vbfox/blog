@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "ColoredPrintf released"
 tags: ["F#", "MasterOfFoo", "ColoredPrintf"]
 ---

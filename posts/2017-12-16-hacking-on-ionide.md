@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Adding our first feature to Ionide"
 tags: ["F#", "Fable", "Ionide", "Javascript"]
 ---

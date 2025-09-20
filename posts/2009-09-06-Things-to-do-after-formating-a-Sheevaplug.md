@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Things to do after formating a Sheevaplug"
 tags: ["Debian", "Linux", "ShevaPlug", "Ubuntu"]
 ---

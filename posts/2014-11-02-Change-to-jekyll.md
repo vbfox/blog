@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: Blog engine changed to Jekyll
 tags: ["blog", "ruby"]
 ---
