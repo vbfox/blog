@@ -1,20 +1,21 @@
 ---
-layout: default
+layout: default.html
 ---
 <div class="post-page">
 
   <header class="post-header">
     <h2 class="post-title">{{ page.title }}</h2>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-    {% if page.toc %}
+    <p class="post-meta">{{ page.published_date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    { if page.toc %}
     <div class="post-toc">
-      {{ content | toc_only }}
+      { content | toc_only }}
     </div>
-    {% endif %}
+    { endif %}
   </header>
 
   <article class="post-content">
-    {{ content | inject_anchors }}
+    <!-- FIXME: | inject_anchors-->
+    {{ page.content }}
   </article>
 
 </div>

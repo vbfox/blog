@@ -5,13 +5,13 @@
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
-    {% feed_meta %}
 
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.base_url }}">
+    <link rel="canonical" href="{{ page.permalink | replace:'index.html','' | prepend: site.base_url }}">
 
     <meta name="theme-color" content="#23272A" />
-    {% if site.mastodon_username %}
-    <meta name="fediverse:creator" content="@{{ site.mastodon_username }}@{{ site.mastodon_domain }}">
+    {% if site.data.mastodon_username %}
+    <meta name="fediverse:creator" content="@{{ site.data.mastodon_username }}@{{ site.data.mastodon_domain }}">
     {% endif %}
 </head>

@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: "Fable: React you can be proud of ! Part 1: React in Fable land"
-tags: Fable, React, Elmish, Performance
-date: 2018-02-06
+tags: ["Fable", "React", "Elmish", "Performance"]
 ---
 
 [Fable][] coupled with [Fable.React][] and [Fable.Elmish.React][] are powerful tools to generate javascript applications. But generating good and fast React code is an already complex task that isn't made simpler by using a different language and a transpiler.
@@ -16,8 +15,8 @@ to look for when optimizing them.
 
 The posts will be:
 
-1. [React in Fable land]({{ site.baseurl }}{% link _posts/2018-02-06-fable-react-1-react-in-fable-land.md %}) (This one)
-1. [Optimizing React]({{ site.baseurl }}{% link _posts/2018-02-08-fable-react-2-optimizing-react.md %})
+1. [React in Fable land]({{ site.base_url }}{ link _posts/2018-02-06-fable-react-1-react-in-fable-land.md %}) (This one)
+1. [Optimizing React]({{ site.base_url }}{ link _posts/2018-02-08-fable-react-2-optimizing-react.md %})
 1. Applying to Elmish
 
 Starting a sample Fable React project
@@ -52,7 +51,7 @@ let init() =
 init()
 ```
 
-![Hello 🌍]({{"/assets/fable-react/hello-world.png" | relative_url}})
+![Hello 🌍](/assets/fable-react/hello-world.png)
 
 Creating HTML elements
 ----------------------
@@ -112,7 +111,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Output of helpers demonstration]({{"/assets/fable-react/helpers.png" | relative_url}})
+![Output of helpers demonstration](/assets/fable-react/helpers.png)
 
 ## React components
 
@@ -154,7 +153,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | relative_url}})
+![Hello, 🌍](/assets/fable-react/components-h1.png)
 
 Some notes:
 * We had to declare `WelcomeProps` while JavaScript could do without
@@ -186,7 +185,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Hello, 🌍]({{"/assets/fable-react/components-h1.png" | relative_url}})
+![Hello, 🌍](/assets/fable-react/components-h1.png")
 
 Nothing special here, the only gotcha is that the props passed in the primary constructor even though they are in scope
 in the `render()` method should not be used.
@@ -253,7 +252,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Counter = 42]({{"/assets/fable-react/state-counter.gif" | relative_url}})
+![Counter = 42](/assets/fable-react/state-counter.gif)
 
 *Note: This sample uses a few react-friendly optimizations that will be the subject of the second post.*
 

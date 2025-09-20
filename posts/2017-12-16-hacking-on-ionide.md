@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: "Adding our first feature to Ionide"
-tags: F#, Fable, Ionide, Javascript
+tags: ["F#", "Fable", "Ionide", "Javascript"]
 ---
 
 *This post is part of the [F# Advent Calendar in English 2017](https://sergeytihon.com/2017/10/22/f-advent-calendar-in-english-2017/) organized by [Sergey Tihon](https://twitter.com/sergey_tihon)*

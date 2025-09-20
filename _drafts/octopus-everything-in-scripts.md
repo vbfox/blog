@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: "Octopus with everything in scripts"
 tags: F#, Fake, Octopus
 ---

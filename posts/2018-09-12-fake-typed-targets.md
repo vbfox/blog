@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: "Replacing FAKE target strings with types"
-tags: F#, FAKE, Build, DevOps
-date: 2018-09-12
+tags: ["F#", "FAKE", "Build", "DevOps"]
 ---
 
 After years of usage I started to find [FAKE](https://fake.build/)'s `Target` syntax less expressive

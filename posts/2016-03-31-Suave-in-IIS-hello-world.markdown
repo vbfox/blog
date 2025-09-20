@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: "Suave in IIS - Hello world"
-tags: Suave F# IIS Proxy
+tags: ["Suave", "F#", "IIS", "Proxy"]
 ---
 
 [Suave](https://suave.io/) is an open source F# library implementing a web server in a

@@ -1,8 +1,7 @@
 ---
-layout: post
-title:  "SSL Observatory how to load the db"
-date:   2011-06-07 21:14
-tags:   Debian EFF Linux SSL-Observatory
+layout: post.html
+title: "SSL Observatory how to load the db"
+tags: ["Debian", "EFF", "Linux", "SSL-Observatory"]
 ---
 The SSL Observatory is a great project from the EFF to gather all SSL
 certificates available on HTTPS websites and publish them for analysis.

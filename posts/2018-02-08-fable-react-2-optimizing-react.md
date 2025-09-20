@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: "Fable: React you can be proud of ! Part 2: Optimizing React"
-tags: Fable, React, Elmish, Performance
-date: 2018-02-08
+tags: ["Fable", "React", "Elmish", "Performance"]
 ---
 
 To optimize React we'll need to dig into how it works and I'll show a series of specific
@@ -10,8 +9,8 @@ optimizations to use.
 
 The post is part of a series on Fable / React optimizations split in 3 parts:
 
-1. [React in Fable land]({{ site.baseurl }}{% link _posts/2018-02-06-fable-react-1-react-in-fable-land.md %})
-1. [Optimizing React]({{ site.baseurl }}{% link _posts/2018-02-08-fable-react-2-optimizing-react.md %}) (This one)
+1. [React in Fable land]({{ site.base_url }}{ link _posts/2018-02-06-fable-react-1-react-in-fable-land.md %})
+1. [Optimizing React]({{ site.base_url }}{ link _posts/2018-02-08-fable-react-2-optimizing-react.md %}) (This one)
 1. Applying to Elmish
 
 ## How does React work
@@ -90,9 +89,9 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-Before: ![Dead Canary]({{"/assets/fable-react/pure-component-dead.gif" | relative_url}})
+Before: ![Dead Canary](/assets/fable-react/pure-component-dead.gif)
 
-After: ![Living Canary]({{"/assets/fable-react/pure-component-alive.gif" | relative_url}})
+After: ![Living Canary](/assets/fable-react/pure-component-alive.gif)
 
 While our canary has no reason to update, each time the button is clicked it will actually
 re-render. But as soon as we convert it to a `PureComponent` it's not updating anymore: none of its props or state change so react doesn't even call `render()`.
@@ -150,7 +149,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![Only the first canary live]({{"/assets/fable-react/passing-functions.gif" | relative_url}})
+![Only the first canary live](/assets/fable-react/passing-functions.gif)
 
 ## Using `toArray`/`toList` and refs
 
@@ -197,7 +196,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![Only the last canary live]({{"/assets/fable-react/names-dead.gif" | relative_url}})
+![Only the last canary live](/assets/fable-react/names-dead.gif)
 
 It seem that *Chantilly* survives but in fact it's an illusion, a new element is always created at
 the end with his name, and all others are mutated.
@@ -246,7 +245,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![Every canary live]({{"/assets/fable-react/names-ok.gif" | relative_url}})
+![Every canary live](/assets/fable-react/names-ok.gif)
 
 We could have kept using `yield!` instead of using `ofList` and it would have worked here
 with only the keys but it's better to always use `ofList`.
@@ -320,9 +319,9 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-Before: ![Dead canary]({{"/assets/fable-react/module-dead.gif" | relative_url}})
+Before: ![Dead canary](/assets/fable-react/module-dead.gif)
 
-After: ![Living canary]({{"/assets/fable-react/module-alive.gif" | relative_url}})
+After: ![Living canary](/assets/fable-react/module-alive.gif)
 
 ## Letting React concatenate
 

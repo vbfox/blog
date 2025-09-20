@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: "More F# colors in the terminal"
-tags: F#, Terminal, XTerm
+tags: ["F#", "Terminal", "XTerm"]
 ---
 
 After releasing [ColoredPrintf][coloredprintf] I started investigating color terminals, especially how some

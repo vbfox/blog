@@ -1,16 +1,29 @@
 ---
-layout: default
+permalink: /
+layout: default.html
+pagination:
+  include: All
+  sort_by: ["weight"]
 ---
 
 <div class="home-page">
+  {% if paginator.previous_index %}
+  <div class="h-card">
+    <img class="u-photo" src="{{ site.baseurl }}/assets/me.jpg" height="150" width="150" alt="Julien Roncaglia" />
+    <p>
+      My name is <span class="p-name">Julien Roncaglia</span>,
+      I am a software engineer and this is my site and blog.
+    </p>
+  </div>
+  {% endif %}
   <ul class="post-list">
-    {% for post in paginator.posts %}
+    {% for post in paginator.pages %}
       <li class="post">
         <div class="post-header">
           <h2 class="post-title">
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <a class="post-link" href="{{ post.permalink | prepend: site.base_url }}">{{ post.title }}</a>
           </h2>
-          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <span class="post-meta">{{ post.published_date | date: "%b %-d, %Y" }}</span>
         </div>
         <article class="post-content">
           {{ post.content }}
@@ -23,14 +36,14 @@ layout: default
   </ul>
   <div class="pagination">
     {%
-      if paginator.previous_page != nil
-    %}<a class="previous" href="{{ paginator.previous_page_path }}">Previous</a>{%
+      if paginator.previous_index
+    %}<a class="previous" href="/{{ paginator.previous_index_permalink }}">Previous</a>{%
       else
     %}<span class="previous">Previous</span>{%
       endif
     %}{%
-      if paginator.next_page != nil
-    %}<a class="next" href="{{ paginator.next_page_path }}">Next</a>{%
+      if paginator.next_index
+    %}<a class="next" href="{{ paginator.next_index_permalink }}">Next</a>{%
       else
     %}<span class="next">Next</span>{%
       endif

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: "Suave on IIS, Windows user authentication"
 tags: F#, Suave, IIS
 ---

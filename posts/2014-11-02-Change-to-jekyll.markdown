@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: Blog engine changed to Jekyll
-date: 2014-11-02 11:49
-tags: blog, ruby
+tags: ["blog", "ruby"]
 ---
 
 This weekend I wanted to blog about [libgit2sharp][1] but I realized that my

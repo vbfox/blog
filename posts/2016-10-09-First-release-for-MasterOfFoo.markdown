@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: "First release for MasterOfFoo"
-tags: F# MasterOfFoo
+tags: ["F#", "MasterOfFoo"]
 ---
 
 MasterOfFoo is an F# library that intend to facilitate writing functions that act like the native `printf` one does.

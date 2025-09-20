@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: post.html
 title:  "Ode to LINQPad"
-tags:   C#
+tags: ["C#"]
 ---
 [LINQPad][1] is one of my favorite tools for C# development it allow for fast
 development of small bits of C# to prototype or answer [StackOverflow][2]

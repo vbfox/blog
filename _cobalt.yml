@@ -1,0 +1,18 @@
+template_extensions:
+  - md
+  - liquid
+  - html
+site:
+  title: Blog of a Fox
+  description: >
+    Blog of Julien Roncaglia (aka VirtualBlackFox)
+  sitemap: sitemap.xml
+  data:
+    github_username:  vbfox
+    mastodon_username: vbfox
+    mastodon_domain: hachyderm.io
+    email: fox@vbfox.net
+posts:
+  rss: rss.xml
+syntax_highlight:
+  enabled: true

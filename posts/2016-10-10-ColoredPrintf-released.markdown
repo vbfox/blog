@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: post.html
 title: "ColoredPrintf released"
-tags: F#, MasterOfFoo, ColoredPrintf
+tags: ["F#", "MasterOfFoo", "ColoredPrintf"]
 date: 2016-10-10 00:19
 ---
 
