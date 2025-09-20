@@ -4,5 +4,9 @@
     ],
     "spellright.documentTypes": [
         "markdown"
-    ]
+    ],
+    "files.associations": {
+        "*.liquid": "html",
+        "*.sublime-syntax": "yaml"
+    }
 }
