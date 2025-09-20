@@ -21,7 +21,7 @@ pagination:
       <li class="post">
         <div class="post-header">
           <h2 class="post-title">
-            <a class="post-link" href="{{ post.permalink | prepend: site.base_url }}">{{ post.title }}</a>
+            <a class="post-link" href="{{ post.permalink }}">{{ post.title }}</a>
           </h2>
           <span class="post-meta">{{ post.published_date | date: "%b %-d, %Y" }}</span>
         </div>
