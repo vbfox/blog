@@ -1,6 +1,6 @@
 ---
 layout: post.html
-title:  "Ode to LINQPad"
+title: "Ode to LINQPad"
 tags: ["C#"]
 ---
 [LINQPad][1] is one of my favorite tools for C# development it allow for fast

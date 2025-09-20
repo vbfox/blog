@@ -2,7 +2,6 @@
 layout: post.html
 title: "ColoredPrintf released"
 tags: ["F#", "MasterOfFoo", "ColoredPrintf"]
-date: 2016-10-10 00:19
 ---
 
 ColoredPrintf is a very simple library that provide a `printf`-like function with color support. A first version
