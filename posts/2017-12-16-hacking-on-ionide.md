@@ -17,7 +17,7 @@ Let's implement a very simple feature and then move to a bigger one! The simple 
 
 First you'll [need the prerequisites](https://github.com/ionide/ionide-vscode-fsharp/blob/master/CONTRIBUTING.md) (VScode, F#, dotnet, yarn, node, ...) then let's checkout a commit without the feature, run a first full build and start code :
 
-```batch
+```sh
 git clone git@github.com:ionide/ionide-vscode-fsharp.git
 cd ionide-vscode-fsharp
 git checkout -b having_fun c0922fc
