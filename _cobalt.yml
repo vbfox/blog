@@ -10,8 +10,11 @@ site:
     email: fox@vbfox.net
   base_url: "https://blog.vbfox.net"
 posts:
+  drafts_dir: _drafts
   rss: rss.xml
 default:
   layout: post.liquid
 ignore:
   - readme.md
+syntax_highlight:
+  theme: css
