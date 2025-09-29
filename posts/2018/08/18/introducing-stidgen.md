@@ -1,6 +1,7 @@
 ---
 title: "Introducing Stidgen, an ID type generator"
 tags: ["F#", "Codegen", "C#", "Stidgen"]
+published_date: 2018-08-18 00:00:00 +0000
 ---
 
 [Stidgen](https://github.com/vbfox/stidgen) is an old (4 years) project of mine

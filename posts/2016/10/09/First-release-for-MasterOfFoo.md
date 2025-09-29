@@ -1,6 +1,7 @@
 ---
 title: "First release for MasterOfFoo"
 tags: ["F#", "MasterOfFoo"]
+published_date: 2016-10-09 00:00:00 +0000
 ---
 
 MasterOfFoo is an F# library that intend to facilitate writing functions that act like the native `printf` one does.

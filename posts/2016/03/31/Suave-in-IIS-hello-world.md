@@ -1,6 +1,7 @@
 ---
 title: "Suave in IIS - Hello world"
 tags: ["Suave", "F#", "IIS", "Proxy"]
+published_date: 2016-03-31 00:00:00 +0000
 ---
 
 [Suave](https://suave.io/) is an open source F# library implementing a web server in a

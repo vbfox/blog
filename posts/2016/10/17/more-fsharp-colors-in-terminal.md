@@ -1,6 +1,7 @@
 ---
 title: "More F# colors in the terminal"
 tags: ["F#", "Terminal", "XTerm"]
+published_date: 2016-10-17 00:00:00 +0000
 ---
 
 After releasing [ColoredPrintf][coloredprintf] I started investigating color terminals, especially how some

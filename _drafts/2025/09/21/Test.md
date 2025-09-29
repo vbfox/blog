@@ -2,6 +2,7 @@
 title: "Test"
 categories: ["Test"]
 is_draft: true
+published_date: 2025-09-21 00:00:00 +0000
 ---
 Hello world
 

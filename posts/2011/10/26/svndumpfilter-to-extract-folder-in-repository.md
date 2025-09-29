@@ -1,6 +1,7 @@
 ---
 title: "Using svndumpfilter to extract a folder in it's own repository"
 tags: ["Linux", "SVN"]
+published_date: 2011-10-26 00:00:00 +0000
 ---
 What i'll explain here is how to use the
 [`svndumpfilter`](http://svnbook.red-bean.com/en/1.5/svn.ref.svndumpfilter.html)

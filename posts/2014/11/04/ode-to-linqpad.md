@@ -1,6 +1,7 @@
 ---
 title: "Ode to LINQPad"
 tags: ["C#"]
+published_date: 2014-11-04 00:00:00 +0000
 ---
 [LINQPad][1] is one of my favorite tools for C# development it allow for fast
 development of small bits of C# to prototype or answer [StackOverflow][2]

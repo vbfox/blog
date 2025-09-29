@@ -1,6 +1,7 @@
 ---
 title: "Fable: React you can be proud of ! Part 2: Optimizing React"
 tags: ["Fable", "React", "Elmish", "Performance"]
+published_date: 2018-02-08 00:00:00 +0000
 ---
 
 To optimize React we'll need to dig into how it works and I'll show a series of specific

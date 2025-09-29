@@ -1,6 +1,7 @@
 ---
 title: "Things to do after formating a Sheevaplug"
 tags: ["Debian", "Linux", "ShevaPlug", "Ubuntu"]
+published_date: 2009-09-06 00:00:00 +0000
 ---
 Once a SheevaPlug is formated with sheevaplug-installer the minimum to do is :
 

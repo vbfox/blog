@@ -1,6 +1,7 @@
 ---
 title: Blog engine changed to Jekyll
 tags: ["blog", "ruby"]
+published_date: 2014-11-02 00:00:00 +0000
 ---
 
 This weekend I wanted to blog about [libgit2sharp][1] but I realized that my

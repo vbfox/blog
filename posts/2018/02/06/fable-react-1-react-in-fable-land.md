@@ -1,6 +1,7 @@
 ---
 title: "Fable: React you can be proud of ! Part 1: React in Fable land"
 tags: ["Fable", "React", "Elmish", "Performance"]
+published_date: 2018-02-06 00:00:00 +0000
 ---
 
 [Fable][] coupled with [Fable.React][] and [Fable.Elmish.React][] are powerful tools to generate javascript applications. But generating good and fast React code is an already complex task that isn't made simpler by using a different language and a transpiler.
