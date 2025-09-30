@@ -23,7 +23,7 @@ colorprintfn "$white[Progress]: $yellow[%.2f%%] (Eta $yellow[%i] minutes)" 42.33
 colorprintfn "$white;blue[%s ]$black;white[%s ]$white;red[%s]" "La vie" "est" "belle"
 ```
 
-![result](/assets/coloredprintf-sample.png)
+![result](coloredprintf-sample.png)
 
 [github]: https://github.com/vbfox/ColoredPrintf
 [nuget]: https://www.nuget.org/packages/BlackFox.ColoredPrintf

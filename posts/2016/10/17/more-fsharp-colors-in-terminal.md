@@ -49,7 +49,7 @@ let esc = string (char 0x1B)
 System.Console.WriteLine(esc + "[31;1m" + "Hello world" + esc + "[0m")
 ```
 
-![First sample](/assets/color-terminal-first-sample.png)
+![First sample](color-terminal-first-sample.png)
 
 It displayed `Hello World` in bright red as `m` is the graphic command taking sub-commands separated by `;`,
 `31` is the red color and `1` signal that we want bold/bright text. And at the end `0` is the reset sub-command,
@@ -106,7 +106,7 @@ for row in 0..5 do
 
 The result in VS Code (On macOS) :
 
-![Palete](/assets/color-terminal-256-pal.png)
+![Palete](color-terminal-256-pal.png)
 
 We need to be true to our colors
 --------------------------------
@@ -129,7 +129,7 @@ let showBitmap path =
 
 And we can apply it to a 40x40px version of the FSharp logo :
 
-![Logo](/assets/color-terminal-logo.png)
+![Logo](color-terminal-logo.png)
 
 The code for all of that can be found in [a Gist][gist].
 
@@ -142,7 +142,7 @@ works but it's the next thing I want to try.
 ConEmu support more than the standard 16 colors but if you try it, it won't work directly, it seem that maybe for
 compatibility reasons the support isn't always on.
 
-![Before](/assets/color-terminal-conemu-16.png)
+![Before](color-terminal-conemu-16.png)
 
 To trigger it an application must first scroll the terminal far away at least once with the `T` command :
 
@@ -155,7 +155,7 @@ setCursorPos 9999 1
 
 After that ConEnu will display what we expect :
 
-![After](/assets/color-terminal-conemu-256.png)
+![After](color-terminal-conemu-256.png)
 
 <a name="cmdexe"></a>Appendix B: Enabling escape codes in Windows default terminal
 -------------------------------------------------------------

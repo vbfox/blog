@@ -29,9 +29,9 @@ code .
 Once this first full build is setup well start our developer loop in VS Code:
 
 * In the Integrated terminal (*View > Integrated Terminal* menu) we run `build watch` :
-  <br/>![Build watch running](/assets/running-fsx/build-watch.png)
+  <br/>![Build watch running](build-watch.png)
 * In the debug view we select the `Launch Only` configuration:
-  <br/>![Launch only being selected](/assets/running-fsx/debug-launch-only.png)
+  <br/>![Launch only being selected](debug-launch-only.png)
 * Press `F5` to start a debug instance of VS Code.
 
 Once started our loop is simple :
@@ -48,7 +48,7 @@ The loop is fast and while not as good as a browser with auto-reloading, pretty 
 
 Our first target is to get something like that:
 
-![Final result](/assets/running-fsx/send-to.png)
+![Final result](send-to.png)
 
 And we actually don't need any code to do it, as the command already exists the only thing we need to do is to to change the `release/package.json` file. And as added bonus it's not something that is build but instead used as-is by Code so we don't even need to wait for the watch build to test it, simply reloading the test instance window will allow us to see our changes.
 
@@ -97,7 +97,7 @@ A few notes here:
 
 We reload the window and...
 
-![No icon](/assets/running-fsx/no-icon.png)
+![No icon](no-icon.png)
 
 We forgot the icon 😢
 
@@ -125,13 +125,13 @@ The images need to be placed in the `release/image` folder and to start copying 
 
 And finally our feature is here, we can test it and verify that it works as expected, job done 🙌.
 
-![Final result](/assets/running-fsx/send-to.png)
+![Final result](send-to.png)
 
 ## Adding our own command
 
 Now let's add another small feature: Running FSX scripts in the terminal
 
-![Menu with run and send](/assets/running-fsx/run-icon.png)
+![Menu with run and send](run-icon.png)
 
 To do that well go back to `package.json` and add our new command:
 
@@ -230,7 +230,7 @@ let private runFile () =
     terminal.show ()
 ```
 
-![First try, working](/assets/running-fsx/run-first-try.png)
+![First try, working](run-first-try.png)
 
 We now have a working minimal sample and can start to build from there:
 

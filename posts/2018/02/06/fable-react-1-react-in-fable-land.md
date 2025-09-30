@@ -51,7 +51,7 @@ let init() =
 init()
 ```
 
-![Hello 🌍](/assets/fable-react/hello-world.png)
+![Hello 🌍](hello-world.png)
 
 Creating HTML elements
 ----------------------
@@ -111,7 +111,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Output of helpers demonstration](/assets/fable-react/helpers.png)
+![Output of helpers demonstration](helpers.png)
 
 ## React components
 
@@ -153,7 +153,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Hello, 🌍](/assets/fable-react/components-h1.png)
+![Hello, 🌍](components-h1.png)
 
 Some notes:
 * We had to declare `WelcomeProps` while JavaScript could do without
@@ -185,7 +185,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Hello, 🌍](/assets/fable-react/components-h1.png)
+![Hello, 🌍](components-h1.png)
 
 Nothing special here, the only gotcha is that the props passed in the primary constructor even though they are in scope
 in the `render()` method should not be used.
@@ -252,7 +252,7 @@ let init() =
     ReactDom.render(element, document.getElementById("root"))
 ```
 
-![Counter = 42](/assets/fable-react/state-counter.gif)
+![Counter = 42](state-counter.gif)
 
 *Note: This sample uses a few react-friendly optimizations that will be the subject of the second post.*
 

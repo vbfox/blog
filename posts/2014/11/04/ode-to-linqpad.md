@@ -7,7 +7,7 @@ published_date: 2014-11-04 00:00:00 +0000
 development of small bits of C# to prototype or answer [StackOverflow][2]
 questions.
 
-![LINQPad UI](/assets/linqpad-overview.png)
+![LINQPad UI](linqpad-overview.png)
 
 The original feature was to allow easy scripting of databases by providing a
 LINQ to SQL view of all objects of a connection directly as members of the
@@ -103,7 +103,7 @@ foreach(var package in packages)
 Which give us a nice clickable list of packages starting with a string directly
 in LINQPad output :
 
-![Links in output](/assets/linqpad-nuget-packages.png)
+![Links in output](linqpad-nuget-packages.png)
 
 ### Pricing
 

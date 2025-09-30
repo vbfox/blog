@@ -89,9 +89,9 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-Before: ![Dead Canary](/assets/fable-react/pure-component-dead.gif)
+Before: ![Dead Canary](pure-component-dead.gif)
 
-After: ![Living Canary](/assets/fable-react/pure-component-alive.gif)
+After: ![Living Canary](pure-component-alive.gif)
 
 While our canary has no reason to update, each time the button is clicked it will actually
 re-render. But as soon as we convert it to a `PureComponent` it's not updating anymore: none of its props or state change so react doesn't even call `render()`.
@@ -149,7 +149,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![Only the first canary live](/assets/fable-react/passing-functions.gif)
+![Only the first canary live](passing-functions.gif)
 
 ## Using `toArray`/`toList` and refs
 
@@ -196,7 +196,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![Only the last canary live](/assets/fable-react/names-dead.gif)
+![Only the last canary live](names-dead.gif)
 
 It seem that *Chantilly* survives but in fact it's an illusion, a new element is always created at
 the end with his name, and all others are mutated.
@@ -245,7 +245,7 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-![Every canary live](/assets/fable-react/names-ok.gif)
+![Every canary live](names-ok.gif)
 
 We could have kept using `yield!` instead of using `ofList` and it would have worked here
 with only the keys but it's better to always use `ofList`.
@@ -319,9 +319,9 @@ let init() =
     ReactDom.render(counter (), document.getElementById("root"))
 ```
 
-Before: ![Dead canary](/assets/fable-react/module-dead.gif)
+Before: ![Dead canary](module-dead.gif)
 
-After: ![Living canary](/assets/fable-react/module-alive.gif)
+After: ![Living canary](module-alive.gif)
 
 ## Letting React concatenate
 
